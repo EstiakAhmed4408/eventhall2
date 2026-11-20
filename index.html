@@ -1,0 +1,1974 @@
+```html
+<!DOCTYPE html>
+<!--
+=====================================================================
+ EVENTHALL: REPLACE BEFORE LAUNCH
+=====================================================================
+ 1. FORM ENDPOINT
+    - In the <script> at the bottom, change FORM_ENDPOINT
+      (currently https://formspree.io/f/YOUR_FORM_ID) to your real
+      Formspree or other form endpoint. While the placeholder is in
+      place, forms run in DEMO MODE: they show success but send nothing.
+ 2. CONTACT DETAILS
+    - Address, phone, email, office hours, parking details and the
+      directions link. They appear in the contact summary, the Contact
+      section, the footer, the JSON-LD block in <head> and the
+      error messages in the script (search for "555" and "eventhall.example").
+ 3. PHOTOS
+    - Every image is marked "REPLACE WITH REAL VENUE PHOTOS".
+      These are the hero, space cards, home gallery preview,
+      GALLERY_ITEMS in the script, and og:image/JSON-LD image.
+      Update the alt text so it matches each real photo.
+ 4. POLICIES
+    - All FAQ/policy text is marked "Sample policy – confirm before
+      launch". Have it reviewed (legal/insurance/licensing) and
+      replace it, including tax/service-fee wording in Packages.
+ 5. TESTIMONIAL
+    - The home-page testimonial is SAMPLE TEXT. Replace it with a real
+      client quote you have permission to use, then remove the "Sample" label.
+ 6. SITE URL & SOCIAL
+    - canonical, og:url and JSON-LD "url" (your GitHub Pages URL), plus
+      the social profile links in the footer.
+=====================================================================
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EventHall | Wedding, Birthday & Corporate Event Venue</title>
+<meta name="description" content="EventHall is a premium event venue for weddings, birthdays and corporate events. Explore our Grand Ballroom, Garden Terrace and Private Lounge, check your date and book a tour.">
+<meta name="theme-color" content="#FAF6EE">
+<link rel="canonical" href="https://your-username.github.io/eventhall/">
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="EventHall">
+<meta property="og:title" content="EventHall | Beautiful occasions. Effortless bookings.">
+<meta property="og:description" content="A premium venue for weddings, birthdays and corporate events. Three elegant spaces with tailored packages. Check your date today.">
+<meta property="og:url" content="https://your-username.github.io/eventhall/">
+<meta property="og:image" content="https://picsum.photos/seed/eventhall-og/1200/630"><!-- REPLACE WITH REAL VENUE PHOTOS -->
+<meta property="og:image:alt" content="The EventHall Grand Ballroom set for an evening reception">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232B2B2B'/%3E%3Ctext x='50%25' y='58%25' text-anchor='middle' font-family='Georgia,serif' font-size='34' fill='%23C9A96A'%3EE%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<!-- Structured data: replace the placeholder details before launch -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["EventVenue", "LocalBusiness"],
+  "name": "EventHall",
+  "slogan": "Beautiful occasions. Effortless bookings.",
+  "description": "Premium event venue for weddings, birthdays and corporate events with three versatile spaces: Grand Ballroom, Garden Terrace and Private Lounge.",
+  "url": "https://your-username.github.io/eventhall/",
+  "image": "https://picsum.photos/seed/eventhall-og/1200/630",
+  "telephone": "+1-555-010-0199",
+  "email": "hello@eventhall.example",
+  "priceRange": "$$$",
+  "maximumAttendeeCapacity": 450,
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "123 Celebration Avenue",
+    "addressLocality": "Springfield",
+    "addressRegion": "ST",
+    "postalCode": "00000",
+    "addressCountry": "US"
+  },
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "09:00", "closes": "18:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "10:00", "closes": "16:00" }
+  ],
+  "amenityFeature": [
+    { "@type": "LocationFeatureSpecification", "name": "Step-free access", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "On-site parking", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "In-house catering", "value": true }
+  ]
+}
+</script>
+
+<script>document.documentElement.classList.add('js');</script>
+
+<style>
+/* =========================================================
+   DESIGN TOKENS
+   ========================================================= */
+:root {
+  /* Colour */
+  --color-bg: #FAF6EE;
+  --color-bg-alt: #F3ECDF;
+  --color-surface: #FFFDF9;
+  --color-text: #2B2B2B;
+  --color-text-muted: #5A554F;          /* 6.6:1 on ivory */
+  --color-gold: #C9A96A;                /* accents, buttons, borders, large headings on dark */
+  --color-gold-light: #D9BF8C;          /* button hover */
+  --color-gold-text: #7A5F28;           /* darker gold for small labels, 5.5:1 on ivory */
+  --color-border: #E4D9C4;
+  --color-border-strong: #8C8478;       /* form controls, 3.4:1 non-text contrast */
+  --color-dark: #221F1B;
+  --color-dark-2: #2E2A25;
+  --color-on-dark: #FAF6EE;
+  --color-on-dark-muted: #D8D0C0;
+  --color-error: #A12C2C;
+  --color-error-bg: #FBEDEA;
+  --color-success: #2E6A3E;
+  --color-success-bg: #EAF3EC;
+  --color-notice-bg: #F6EEDC;
+  --color-focus: #2B2B2B;
+  --color-focus-on-dark: #C9A96A;
+  --color-overlay: rgba(24, 21, 17, 0.62);
+  --color-lightbox: rgba(18, 16, 14, 0.96);
+
+  /* Typography */
+  --font-serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --fs-xs: 0.8125rem;
+  --fs-sm: 0.9375rem;
+  --fs-base: 1rem;
+  --fs-md: 1.125rem;
+  --fs-lg: 1.375rem;
+  --fs-xl: clamp(1.75rem, 1.4rem + 1.6vw, 2.5rem);
+  --fs-2xl: clamp(2.25rem, 1.6rem + 3vw, 3.5rem);
+  --fs-hero: clamp(2.75rem, 1.8rem + 5vw, 5rem);
+  --lh-body: 1.65;
+  --lh-tight: 1.15;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+
+  /* Spacing */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --space-9: 6rem;
+  --section-pad: clamp(3.5rem, 2rem + 6vw, 6.5rem);
+  --container: 1200px;
+  --container-narrow: 820px;
+  --gutter: clamp(1.25rem, 0.8rem + 2vw, 2.5rem);
+
+  /* Shape & depth */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-pill: 999px;
+  --shadow-sm: 0 1px 2px rgba(43, 43, 43, 0.06);
+  --shadow-md: 0 6px 24px rgba(43, 43, 43, 0.08);
+  --shadow-lg: 0 18px 48px rgba(43, 43, 43, 0.12);
+  --border-thin: 1px solid var(--color-border);
+
+  /* Misc */
+  --nav-height: 72px;
+  --tap: 44px;
+  --ease: cubic-bezier(.2, .7, .2, 1);
+  --dur: 200ms;
+}
+
+/* =========================================================
+   BASE
+   ========================================================= */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--fs-base);
+  line-height: var(--lh-body);
+  color: var(--color-text);
+  background: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+}
+body.no-scroll { overflow: hidden; }
+img { max-width: 100%; height: auto; display: block; }
+a { color: var(--color-text); text-decoration-color: var(--color-gold); text-underline-offset: 3px; text-decoration-thickness: 2px; }
+a:hover { text-decoration-color: var(--color-text); }
+h1, h2, h3, h4 { font-family: var(--font-serif); font-weight: var(--fw-semibold); line-height: var(--lh-tight); margin: 0 0 var(--space-4); }
+h2 { font-size: var(--fs-2xl); }
+h3 { font-size: var(--fs-lg); }
+p { margin: 0 0 var(--space-4); }
+ul { margin: 0; padding: 0; }
+button, input, select, textarea { font: inherit; color: inherit; }
+[hidden] { display: none !important; }
+
+:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 3px; border-radius: 4px; }
+.on-dark :focus-visible, .hero :focus-visible, .site-footer :focus-visible, .lightbox :focus-visible { outline-color: var(--color-focus-on-dark); }
+
+.visually-hidden {
+  position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+.skip-link {
+  position: absolute; left: var(--space-4); top: -100px; z-index: 1000;
+  background: var(--color-text); color: var(--color-bg); padding: var(--space-3) var(--space-5);
+  border-radius: var(--radius-sm); font-weight: var(--fw-semibold); text-decoration: none;
+}
+.skip-link:focus { top: var(--space-3); outline-color: var(--color-gold); }
+
+.container { width: 100%; max-width: var(--container); margin: 0 auto; padding: 0 var(--gutter); }
+.container-narrow { max-width: var(--container-narrow); }
+.section { padding: var(--section-pad) 0; scroll-margin-top: var(--nav-height); }
+.section-alt { background: var(--color-bg-alt); }
+section[id], [id].anchor { scroll-margin-top: calc(var(--nav-height) + 8px); }
+
+.eyebrow {
+  display: inline-block; font-size: var(--fs-xs); font-weight: var(--fw-semibold);
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-gold-text); margin-bottom: var(--space-3);
+}
+.on-dark .eyebrow, .hero .eyebrow { color: var(--color-gold); }
+.section-head { max-width: 680px; margin-bottom: var(--space-7); }
+.section-head.center { text-align: center; margin-left: auto; margin-right: auto; }
+.section-head h2::after {
+  content: ""; display: block; width: 56px; height: 2px; background: var(--color-gold); margin-top: var(--space-4);
+}
+.section-head.center h2::after { margin-left: auto; margin-right: auto; }
+.lead { font-size: var(--fs-md); color: var(--color-text-muted); }
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2);
+  min-height: var(--tap); min-width: var(--tap); padding: 0.7rem 1.5rem;
+  border-radius: var(--radius-pill); border: 2px solid transparent;
+  font-weight: var(--fw-semibold); font-size: var(--fs-sm); letter-spacing: 0.02em;
+  text-decoration: none; cursor: pointer; line-height: 1.2; text-align: center;
+  transition: background-color var(--dur) var(--ease), border-color var(--dur) var(--ease), color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+.btn-primary { background: var(--color-gold); color: var(--color-text); border-color: var(--color-gold); }
+.btn-primary:hover { background: var(--color-gold-light); border-color: var(--color-gold-light); box-shadow: var(--shadow-md); }
+.btn-secondary { background: transparent; color: var(--color-text); border-color: var(--color-text); }
+.btn-secondary:hover { background: var(--color-text); color: var(--color-bg); }
+.btn-ghost-light { background: transparent; color: var(--color-on-dark); border-color: var(--color-on-dark); }
+.btn-ghost-light:hover { background: var(--color-on-dark); color: var(--color-text); }
+.btn-block { width: 100%; }
+.btn[disabled], .btn[aria-busy="true"] { opacity: 0.7; cursor: not-allowed; }
+.btn-row { display: flex; flex-wrap: wrap; gap: var(--space-3); }
+.text-link {
+  display: inline-flex; align-items: center; min-height: var(--tap); font-weight: var(--fw-semibold);
+}
+
+/* =========================================================
+   HEADER / NAV
+   ========================================================= */
+.site-header {
+  position: sticky; top: 0; z-index: 100; height: var(--nav-height);
+  background: rgba(250, 246, 238, 0.96); border-bottom: var(--border-thin);
+  backdrop-filter: saturate(140%) blur(6px);
+}
+.nav-wrap { display: flex; align-items: center; justify-content: space-between; height: 100%; gap: var(--space-4); }
+.brand {
+  font-family: var(--font-serif); font-size: 1.75rem; font-weight: var(--fw-bold, 700);
+  text-decoration: none; color: var(--color-text); display: inline-flex; align-items: center; gap: var(--space-2); min-height: var(--tap);
+}
+.brand-mark {
+  width: 34px; height: 34px; border-radius: 50%; border: 2px solid var(--color-gold);
+  display: inline-grid; place-items: center; font-size: 1.1rem; color: var(--color-text);
+}
+.nav-toggle {
+  display: inline-flex; flex-direction: column; justify-content: center; align-items: center; gap: 5px;
+  width: var(--tap); height: var(--tap); border: 1px solid var(--color-border-strong); border-radius: var(--radius-sm);
+  background: transparent; cursor: pointer;
+}
+.nav-toggle span { display: block; width: 20px; height: 2px; background: var(--color-text); transition: transform var(--dur) var(--ease), opacity var(--dur); }
+.nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.primary-nav ul { list-style: none; display: flex; flex-direction: column; gap: var(--space-1); }
+.primary-nav a {
+  display: flex; align-items: center; min-height: var(--tap); padding: 0 var(--space-3);
+  text-decoration: none; font-weight: var(--fw-medium); font-size: var(--fs-sm); border-radius: var(--radius-sm);
+}
+.primary-nav a:hover { background: var(--color-bg-alt); }
+.primary-nav a.is-active { box-shadow: inset 0 -2px 0 var(--color-gold); }
+.primary-nav .nav-cta { margin-top: var(--space-2); }
+.primary-nav .nav-cta a { background: var(--color-gold); justify-content: center; border-radius: var(--radius-pill); padding: 0 var(--space-5); font-weight: var(--fw-semibold); }
+.primary-nav .nav-cta a:hover { background: var(--color-gold-light); }
+
+/* Mobile nav panel (only hidden when JS is available) */
+.js .primary-nav {
+  display: none; position: absolute; left: 0; right: 0; top: var(--nav-height);
+  background: var(--color-bg); border-bottom: var(--border-thin); box-shadow: var(--shadow-md);
+  padding: var(--space-4) var(--gutter) var(--space-5); max-height: calc(100vh - var(--nav-height)); overflow-y: auto;
+}
+.js .primary-nav.is-open { display: block; }
+html:not(.js) .nav-toggle { display: none; }
+
+/* =========================================================
+   HERO
+   ========================================================= */
+.hero {
+  position: relative; min-height: calc(100svh - var(--nav-height)); display: flex; align-items: center;
+  color: var(--color-on-dark); background: var(--color-dark); overflow: hidden; isolation: isolate;
+}
+.hero-media { position: absolute; inset: 0; z-index: -2; }
+.hero-media img { width: 100%; height: 100%; object-fit: cover; }
+.hero::before {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(180deg, rgba(24,21,17,.55) 0%, var(--color-overlay) 55%, rgba(24,21,17,.85) 100%);
+}
+.hero-content { padding: var(--space-8) 0; max-width: 760px; }
+.hero h1 { font-size: var(--fs-hero); font-weight: var(--fw-semibold); margin-bottom: var(--space-4); }
+.hero h1 em { font-style: italic; color: var(--color-gold); }
+.hero-tagline { font-size: var(--fs-md); color: var(--color-on-dark-muted); max-width: 560px; margin-bottom: var(--space-6); }
+.hero-meta { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-5); margin-top: var(--space-6); font-size: var(--fs-sm); color: var(--color-on-dark-muted); list-style: none; }
+.hero-meta li::before { content: "◆"; color: var(--color-gold); font-size: 0.6rem; margin-right: var(--space-2); vertical-align: middle; }
+
+/* =========================================================
+   INTRO / HIGHLIGHTS
+   ========================================================= */
+.intro-grid { display: grid; gap: var(--space-6); }
+.stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-4); list-style: none; }
+.stats li { border-top: 2px solid var(--color-gold); padding-top: var(--space-3); }
+.stats strong { display: block; font-family: var(--font-serif); font-size: var(--fs-xl); line-height: 1.1; }
+.stats span { font-size: var(--fs-sm); color: var(--color-text-muted); }
+
+.highlights { display: grid; gap: var(--space-5); list-style: none; margin-top: var(--space-7); }
+.highlight {
+  background: var(--color-surface); border: var(--border-thin); border-radius: var(--radius-md);
+  overflow: hidden; display: flex; flex-direction: column; box-shadow: var(--shadow-sm);
+}
+.highlight img { aspect-ratio: 4 / 3; object-fit: cover; width: 100%; }
+.highlight-body { padding: var(--space-5); display: flex; flex-direction: column; gap: var(--space-2); flex: 1; }
+.highlight-body h3 { margin: 0; }
+.highlight-body p { color: var(--color-text-muted); margin: 0; }
+.highlight-body .text-link { margin-top: auto; }
+
+/* Gallery preview */
+.preview-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-3); list-style: none; }
+.preview-grid button, .gallery-item {
+  display: block; width: 100%; padding: 0; border: 0; background: var(--color-bg-alt);
+  border-radius: var(--radius-md); overflow: hidden; cursor: zoom-in; position: relative;
+}
+.preview-grid img, .gallery-item img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; transition: transform 400ms var(--ease); }
+.preview-grid button:hover img, .gallery-item:hover img { transform: scale(1.03); }
+.preview-actions { margin-top: var(--space-6); text-align: center; }
+
+/* Testimonial */
+.testimonial { text-align: center; max-width: 760px; margin: 0 auto; }
+.sample-badge {
+  display: inline-block; font-size: var(--fs-xs); font-weight: var(--fw-semibold); letter-spacing: 0.08em; text-transform: uppercase;
+  border: 1px dashed var(--color-gold-text); color: var(--color-gold-text); padding: var(--space-1) var(--space-3); border-radius: var(--radius-pill); margin-bottom: var(--space-5);
+}
+.testimonial blockquote { margin: 0; }
+.testimonial blockquote p { font-family: var(--font-serif); font-size: var(--fs-xl); font-style: italic; line-height: 1.35; }
+.testimonial blockquote p::before { content: "“"; display: block; font-size: 4rem; line-height: 0.6; color: var(--color-gold); font-style: normal; margin-bottom: var(--space-3); }
+.testimonial figcaption { color: var(--color-text-muted); font-size: var(--fs-sm); }
+
+/* Contact summary strip */
+.contact-strip { background: var(--color-dark); color: var(--color-on-dark); }
+.contact-strip-grid { display: grid; gap: var(--space-5); align-items: center; }
+.contact-strip h2 { color: var(--color-gold); font-size: var(--fs-xl); margin-bottom: var(--space-2); }
+.contact-strip p { color: var(--color-on-dark-muted); margin: 0; }
+.contact-strip a { color: var(--color-on-dark); }
+.strip-list { list-style: none; display: grid; gap: var(--space-2); font-size: var(--fs-sm); }
+.strip-list a { display: inline-flex; align-items: center; min-height: var(--tap); }
+
+/* =========================================================
+   SPACES
+   ========================================================= */
+.spaces-grid { display: grid; gap: var(--space-6); list-style: none; }
+.space-card {
+  background: var(--color-surface); border: var(--border-thin); border-radius: var(--radius-lg);
+  overflow: hidden; box-shadow: var(--shadow-sm); display: flex; flex-direction: column;
+}
+.space-card > img { aspect-ratio: 16 / 10; object-fit: cover; width: 100%; }
+.space-body { padding: var(--space-5); display: flex; flex-direction: column; gap: var(--space-4); flex: 1; }
+.space-body h3 { font-size: var(--fs-xl); margin: 0; }
+.space-body > p { color: var(--color-text-muted); margin: 0; }
+.capacity { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3); margin: 0; }
+.capacity div { background: var(--color-bg-alt); border-radius: var(--radius-sm); padding: var(--space-3); text-align: center; border-top: 2px solid var(--color-gold); }
+.capacity dt { font-size: var(--fs-xs); text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-text-muted); }
+.capacity dd { margin: 0; font-family: var(--font-serif); font-size: 1.75rem; font-weight: var(--fw-semibold); }
+.space-specs { margin: 0; display: grid; gap: var(--space-3); font-size: var(--fs-sm); }
+.space-specs dt { font-weight: var(--fw-semibold); }
+.space-specs dd { margin: 0; color: var(--color-text-muted); }
+.tag-list { display: flex; flex-wrap: wrap; gap: var(--space-2); list-style: none; margin-top: var(--space-1); }
+.tag-list li { font-size: var(--fs-xs); border: 1px solid var(--color-border); border-radius: var(--radius-pill); padding: 2px var(--space-3); color: var(--color-text); background: var(--color-bg); }
+.space-body .btn { margin-top: auto; }
+
+/* =========================================================
+   GALLERY
+   ========================================================= */
+.filters { display: grid; gap: var(--space-4); margin-bottom: var(--space-6); }
+.filter-group { border: 0; padding: 0; margin: 0; min-width: 0; }
+.filter-group legend { font-size: var(--fs-xs); font-weight: var(--fw-semibold); text-transform: uppercase; letter-spacing: 0.12em; color: var(--color-text-muted); margin-bottom: var(--space-2); padding: 0; }
+.chips { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.chip {
+  min-height: var(--tap); padding: 0 var(--space-4); border-radius: var(--radius-pill);
+  border: 1px solid var(--color-border-strong); background: var(--color-surface); cursor: pointer; font-size: var(--fs-sm); font-weight: var(--fw-medium);
+  transition: background-color var(--dur), border-color var(--dur);
+}
+.chip:hover { border-color: var(--color-text); }
+.chip[aria-pressed="true"] { background: var(--color-text); color: var(--color-bg); border-color: var(--color-text); }
+.gallery-status { font-size: var(--fs-sm); color: var(--color-text-muted); margin-bottom: var(--space-4); }
+.gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-3); list-style: none; }
+.gallery-item .gi-label {
+  position: absolute; left: var(--space-2); bottom: var(--space-2); background: rgba(250,246,238,.94); color: var(--color-text);
+  font-size: var(--fs-xs); font-weight: var(--fw-semibold); padding: 2px var(--space-2); border-radius: var(--radius-sm);
+}
+.empty-state { text-align: center; padding: var(--space-7) var(--space-4); border: 1px dashed var(--color-border-strong); border-radius: var(--radius-md); background: var(--color-surface); }
+.empty-state p { color: var(--color-text-muted); }
+
+/* Lightbox */
+.lightbox {
+  position: fixed; inset: 0; z-index: 500; background: var(--color-lightbox); color: var(--color-on-dark);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; padding: var(--space-7) var(--space-3) var(--space-5);
+}
+.lightbox figure { margin: 0; max-width: min(1200px, 100%); width: 100%; display: flex; flex-direction: column; align-items: center; gap: var(--space-3); }
+.lightbox img { max-height: 72vh; width: auto; max-width: 100%; object-fit: contain; border-radius: var(--radius-sm); background: var(--color-dark-2); }
+.lightbox figcaption { text-align: center; max-width: 720px; font-size: var(--fs-sm); color: var(--color-on-dark-muted); }
+.lightbox figcaption strong { display: block; color: var(--color-on-dark); font-family: var(--font-serif); font-size: var(--fs-lg); font-weight: var(--fw-semibold); }
+.lb-btn {
+  position: absolute; width: 48px; height: 48px; border-radius: 50%; border: 1px solid rgba(250,246,238,.5);
+  background: rgba(34,31,27,.75); color: var(--color-on-dark); cursor: pointer; display: grid; place-items: center; font-size: 1.4rem;
+}
+.lb-btn:hover { background: var(--color-gold); color: var(--color-text); border-color: var(--color-gold); }
+.lb-close { top: var(--space-3); right: var(--space-3); }
+.lb-prev { left: var(--space-2); top: 50%; transform: translateY(-50%); }
+.lb-next { right: var(--space-2); top: 50%; transform: translateY(-50%); }
+.lb-counter { position: absolute; top: var(--space-4); left: var(--space-4); font-size: var(--fs-sm); color: var(--color-on-dark-muted); }
+
+/* =========================================================
+   PACKAGES
+   ========================================================= */
+.packages-grid { display: grid; gap: var(--space-6); list-style: none; }
+.package {
+  position: relative; background: var(--color-surface); border: var(--border-thin); border-radius: var(--radius-lg);
+  padding: var(--space-6) var(--space-5); display: flex; flex-direction: column; gap: var(--space-4); box-shadow: var(--shadow-sm);
+}
+.package.featured { border: 2px solid var(--color-gold); box-shadow: var(--shadow-md); }
+.package-badge {
+  position: absolute; top: calc(var(--space-3) * -1 - 2px); left: 50%; transform: translateX(-50%);
+  background: var(--color-gold); color: var(--color-text); font-size: var(--fs-xs); font-weight: var(--fw-semibold);
+  padding: var(--space-1) var(--space-4); border-radius: var(--radius-pill); letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap;
+}
+.package h3 { font-size: var(--fs-xl); margin: 0; }
+.package-sub { color: var(--color-text-muted); margin: 0; }
+.package h4 { font-family: var(--font-sans); font-size: var(--fs-xs); text-transform: uppercase; letter-spacing: 0.12em; color: var(--color-gold-text); margin: 0 0 var(--space-2); font-weight: var(--fw-semibold); }
+.check-list, .dash-list { list-style: none; display: grid; gap: var(--space-2); font-size: var(--fs-sm); }
+.check-list li, .dash-list li { padding-left: 1.6rem; position: relative; }
+.check-list li::before { content: "✓"; position: absolute; left: 0; color: var(--color-gold-text); font-weight: 700; }
+.dash-list li::before { content: "–"; position: absolute; left: 0.2rem; color: var(--color-text-muted); }
+.package .btn { margin-top: auto; }
+.fee-note {
+  margin-top: var(--space-6); padding: var(--space-4) var(--space-5); background: var(--color-surface);
+  border-left: 3px solid var(--color-gold); border-radius: var(--radius-sm); font-size: var(--fs-sm); color: var(--color-text-muted);
+}
+
+/* =========================================================
+   FORMS
+   ========================================================= */
+.form-card { background: var(--color-surface); border: var(--border-thin); border-radius: var(--radius-lg); padding: var(--space-5); box-shadow: var(--shadow-md); }
+.notice {
+  display: flex; gap: var(--space-3); align-items: flex-start; background: var(--color-notice-bg); border: 1px solid var(--color-gold);
+  border-radius: var(--radius-md); padding: var(--space-4); margin-bottom: var(--space-5); font-size: var(--fs-sm);
+}
+.notice svg { flex: none; margin-top: 2px; }
+.notice strong { display: block; }
+fieldset.form-section { border: 0; padding: 0; margin: 0 0 var(--space-6); min-width: 0; }
+fieldset.form-section > legend { font-family: var(--font-serif); font-size: var(--fs-lg); font-weight: var(--fw-semibold); padding: 0; margin-bottom: var(--space-4); }
+.form-grid { display: grid; gap: var(--space-4); }
+.field { display: flex; flex-direction: column; gap: var(--space-1); min-width: 0; }
+.field label, .field .label { font-weight: var(--fw-semibold); font-size: var(--fs-sm); }
+.req { color: var(--color-error); }
+.optional { font-weight: var(--fw-regular); color: var(--color-text-muted); }
+.hint { font-size: var(--fs-xs); color: var(--color-text-muted); margin: 0; }
+.input, .select, .textarea {
+  width: 100%; min-height: var(--tap); padding: 0.65rem 0.85rem; background: #fff;
+  border: 1px solid var(--color-border-strong); border-radius: var(--radius-sm); font-size: var(--fs-base);
+  transition: border-color var(--dur), box-shadow var(--dur);
+}
+.textarea { min-height: 120px; resize: vertical; }
+.select { appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--color-text) 50%), linear-gradient(135deg, var(--color-text) 50%, transparent 50%); background-position: calc(100% - 18px) 55%, calc(100% - 13px) 55%; background-size: 5px 5px; background-repeat: no-repeat; padding-right: 2.5rem; }
+.input:hover, .select:hover, .textarea:hover { border-color: var(--color-text); }
+.input:focus-visible, .select:focus-visible, .textarea:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 1px; border-color: var(--color-text); }
+[aria-invalid="true"] { border-color: var(--color-error) !important; box-shadow: 0 0 0 1px var(--color-error); }
+.field-error { color: var(--color-error); font-size: var(--fs-sm); font-weight: var(--fw-medium); margin: 0; min-height: 0; }
+.field-error:not(:empty)::before { content: "⚠ "; }
+.check { display: grid; grid-template-columns: var(--tap) 1fr; align-items: start; gap: 0; }
+.check input { width: 22px; height: 22px; margin: 11px; accent-color: var(--color-text); cursor: pointer; }
+.check label { padding-top: 10px; font-size: var(--fs-sm); cursor: pointer; }
+.check .field-error { grid-column: 2; }
+.char-count { font-size: var(--fs-xs); color: var(--color-text-muted); text-align: right; margin: 0; }
+.hp { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+
+.alert { border-radius: var(--radius-md); padding: var(--space-4); margin-bottom: var(--space-5); font-size: var(--fs-sm); }
+.alert:focus { outline: 3px solid var(--color-focus); outline-offset: 2px; }
+.alert-error { background: var(--color-error-bg); border: 1px solid var(--color-error); color: var(--color-error); }
+.alert-error a { color: var(--color-error); }
+.form-success { background: var(--color-success-bg); border: 1px solid var(--color-success); border-radius: var(--radius-md); padding: var(--space-6) var(--space-5); text-align: center; }
+.form-success:focus { outline: 3px solid var(--color-focus); outline-offset: 3px; }
+.form-success h3 { color: var(--color-success); font-size: var(--fs-xl); }
+.success-icon { width: 56px; height: 56px; margin: 0 auto var(--space-4); border-radius: 50%; background: var(--color-success); color: #fff; display: grid; place-items: center; font-size: 1.6rem; }
+.ref-box { display: inline-flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: var(--space-3); background: #fff; border: 1px dashed var(--color-success); border-radius: var(--radius-sm); padding: var(--space-2) var(--space-4); margin: var(--space-2) 0 var(--space-4); }
+.ref-code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: var(--fs-lg); font-weight: 700; letter-spacing: 0.05em; }
+.copy-btn { min-height: var(--tap); padding: 0 var(--space-3); border: 1px solid var(--color-success); color: var(--color-success); background: transparent; border-radius: var(--radius-sm); cursor: pointer; font-size: var(--fs-sm); font-weight: var(--fw-semibold); }
+.demo-note { font-size: var(--fs-xs); background: var(--color-notice-bg); border-radius: var(--radius-sm); padding: var(--space-2) var(--space-3); color: var(--color-text); }
+.spinner { width: 16px; height: 16px; border: 2px solid currentColor; border-right-color: transparent; border-radius: 50%; animation: spin 0.8s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.inquiry-layout { display: grid; gap: var(--space-6); }
+.inquiry-aside { display: grid; gap: var(--space-4); align-content: start; }
+.aside-card { background: var(--color-surface); border: var(--border-thin); border-radius: var(--radius-md); padding: var(--space-5); }
+.aside-card h3 { font-size: var(--fs-lg); }
+.steps { list-style: none; counter-reset: step; display: grid; gap: var(--space-3); font-size: var(--fs-sm); }
+.steps li { counter-increment: step; display: grid; grid-template-columns: 32px 1fr; gap: var(--space-3); align-items: start; }
+.steps li::before { content: counter(step); width: 28px; height: 28px; border-radius: 50%; border: 2px solid var(--color-gold); display: grid; place-items: center; font-weight: 600; font-size: var(--fs-xs); }
+
+/* =========================================================
+   CONTACT
+   ========================================================= */
+.contact-layout { display: grid; gap: var(--space-6); }
+.info-list { margin: 0; display: grid; gap: var(--space-5); }
+.info-list dt { font-size: var(--fs-xs); text-transform: uppercase; letter-spacing: 0.12em; color: var(--color-gold-text); font-weight: var(--fw-semibold); margin-bottom: var(--space-1); }
+.info-list dd { margin: 0; }
+.info-list address { font-style: normal; }
+.hours { width: 100%; border-collapse: collapse; font-size: var(--fs-sm); }
+.hours th, .hours td { text-align: left; padding: var(--space-1) 0; font-weight: var(--fw-regular); overflow-wrap: break-word; }
+.hours th { padding-right: var(--space-4); color: var(--color-text-muted); }
+
+/* =========================================================
+   FAQ ACCORDION
+   ========================================================= */
+.policy-banner { display: inline-flex; align-items: center; gap: var(--space-2); font-size: var(--fs-sm); background: var(--color-notice-bg); border: 1px dashed var(--color-gold-text); padding: var(--space-2) var(--space-4); border-radius: var(--radius-pill); }
+.accordion { list-style: none; border-top: var(--border-thin); margin-top: var(--space-6); }
+.accordion > li { border-bottom: var(--border-thin); }
+.accordion h3 { margin: 0; font-family: var(--font-sans); font-size: var(--fs-base); }
+.accordion-trigger {
+  width: 100%; min-height: 60px; display: flex; align-items: center; justify-content: space-between; gap: var(--space-4);
+  background: transparent; border: 0; text-align: left; padding: var(--space-3) var(--space-1); cursor: pointer;
+  font-weight: var(--fw-semibold); font-size: var(--fs-md);
+}
+.accordion-trigger:hover { color: var(--color-gold-text); }
+.acc-icon { flex: none; width: 32px; height: 32px; border-radius: 50%; border: 1px solid var(--color-gold); position: relative; }
+.acc-icon::before, .acc-icon::after { content: ""; position: absolute; left: 50%; top: 50%; width: 12px; height: 2px; background: var(--color-text); transform: translate(-50%, -50%); transition: transform var(--dur) var(--ease); }
+.acc-icon::after { transform: translate(-50%, -50%) rotate(90deg); }
+.accordion-trigger[aria-expanded="true"] .acc-icon::after { transform: translate(-50%, -50%) rotate(0deg); }
+.accordion-panel { padding: 0 var(--space-1) var(--space-5); color: var(--color-text-muted); max-width: 72ch; }
+.accordion-panel p:last-child { margin-bottom: 0; }
+.policy-tag { display: inline-block; font-size: var(--fs-xs); font-weight: var(--fw-semibold); color: var(--color-gold-text); border: 1px dashed var(--color-gold-text); border-radius: var(--radius-pill); padding: 0 var(--space-2); margin-bottom: var(--space-3); }
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+.site-footer { background: var(--color-dark); color: var(--color-on-dark-muted); padding: var(--space-8) 0 var(--space-5); font-size: var(--fs-sm); }
+.site-footer a { color: var(--color-on-dark); }
+.footer-grid { display: grid; gap: var(--space-6); }
+.footer-brand { font-family: var(--font-serif); font-size: 2rem; color: var(--color-gold); margin-bottom: var(--space-2); font-weight: 600; }
+.site-footer h2 { font-family: var(--font-sans); font-size: var(--fs-xs); text-transform: uppercase; letter-spacing: 0.14em; color: var(--color-gold); margin-bottom: var(--space-3); font-weight: var(--fw-semibold); }
+.footer-links { list-style: none; display: grid; gap: 0; }
+.footer-links a { display: inline-flex; align-items: center; min-height: var(--tap); text-decoration: none; }
+.footer-links a:hover { text-decoration: underline; }
+.footer-contact address { font-style: normal; }
+.socials { display: flex; gap: var(--space-2); list-style: none; }
+.socials a { width: var(--tap); height: var(--tap); border-radius: 50%; border: 1px solid rgba(250,246,238,.35); display: grid; place-items: center; }
+.socials a:hover { border-color: var(--color-gold); background: var(--color-dark-2); }
+.socials svg { width: 20px; height: 20px; fill: var(--color-on-dark); }
+.footer-bottom { border-top: 1px solid rgba(250,246,238,.15); margin-top: var(--space-7); padding-top: var(--space-5); display: flex; flex-wrap: wrap; gap: var(--space-3); justify-content: space-between; align-items: center; }
+.footer-bottom ul { list-style: none; display: flex; flex-wrap: wrap; gap: var(--space-4); }
+.footer-bottom a { display: inline-flex; min-height: var(--tap); align-items: center; }
+
+/* =========================================================
+   RESPONSIVE (mobile-first)
+   ========================================================= */
+@media (min-width: 640px) {
+  .form-grid.two { grid-template-columns: 1fr 1fr; }
+  .form-grid .span-2 { grid-column: 1 / -1; }
+  .highlights { grid-template-columns: repeat(2, 1fr); }
+  .preview-grid { grid-template-columns: repeat(4, 1fr); }
+  .form-card { padding: var(--space-6); }
+  .contact-strip-grid { grid-template-columns: 1fr auto; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (min-width: 768px) {
+  .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+  .filters { grid-template-columns: 1fr 1fr; }
+  .spaces-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1000px) {
+  .nav-toggle { display: none; }
+  .js .primary-nav, .primary-nav {
+    display: block; position: static; background: transparent; border: 0; box-shadow: none; padding: 0; max-height: none; overflow: visible;
+  }
+  .primary-nav ul { flex-direction: row; align-items: center; gap: var(--space-1); }
+  .primary-nav .nav-cta { margin: 0 0 0 var(--space-3); }
+  .intro-grid { grid-template-columns: 1.1fr 1fr; align-items: end; gap: var(--space-8); }
+  .highlights { grid-template-columns: repeat(3, 1fr); }
+  .spaces-grid, .packages-grid { grid-template-columns: repeat(3, 1fr); }
+  .gallery-grid { grid-template-columns: repeat(4, 1fr); }
+  .inquiry-layout { grid-template-columns: 1fr 2fr; }
+  .contact-layout { grid-template-columns: 1fr 1.3fr; }
+  .footer-grid { grid-template-columns: 1.4fr 1fr 1fr 1fr; }
+  .contact-strip-grid { grid-template-columns: 1.2fr 1fr auto; }
+  .lb-prev { left: var(--space-5); }
+  .lb-next { right: var(--space-5); }
+}
+@media (max-width: 768px) {
+  h1 { font-size: 2.6rem; }
+  .stats strong { font-size: 1.6rem; }
+  .package-badge { font-size: 0.7rem; }
+  .lightbox img { max-height: 60vh; }
+  .lb-prev, .lb-next { top: auto; bottom: var(--space-4); transform: none; }
+  .lb-prev { left: calc(50% - 60px); }
+  .lb-next { right: calc(50% - 60px); }
+  .lightbox { padding-bottom: 90px; }
+}
+@media (max-width: 380px) {
+  .stats { grid-template-columns: 1fr; }
+  .capacity dd { font-size: 1.5rem; }
+}
+/* Short landscape phones */
+@media (orientation: landscape) and (max-height: 520px) {
+  .hero { min-height: auto; }
+  .hero-content { padding: var(--space-6) 0; }
+  .lightbox { padding-top: var(--space-5); }
+  .lightbox img { max-height: 62vh; }
+  .js .primary-nav { max-height: calc(100vh - var(--nav-height)); }
+}
+
+/* =========================================================
+   MOTION PREFERENCES
+   ========================================================= */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  .preview-grid button:hover img, .gallery-item:hover img { transform: none; }
+}
+@media print {
+  .site-header, .hero-media, .lightbox, .nav-toggle { display: none !important; }
+  .hero { min-height: auto; color: var(--color-text); background: none; }
+}
+</style>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ======================= HEADER ======================= -->
+<header class="site-header" id="site-header">
+  <div class="container nav-wrap">
+    <a class="brand" href="#home" aria-label="EventHall home">
+      <span class="brand-mark" aria-hidden="true">E</span>EventHall
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="primary-nav" id="primary-nav" aria-label="Primary">
+      <ul>
+        <li><a href="#spaces">Spaces</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#packages">Packages</a></li>
+        <li><a href="#inquiry">Availability</a></li>
+        <li><a href="#contact">Tours &amp; Contact</a></li>
+        <li><a href="#faqs">FAQs</a></li>
+        <li class="nav-cta"><a href="#inquiry" data-focus="eventType">Check your date</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+
+  <!-- ======================= HERO ======================= -->
+  <section class="hero" id="home" aria-labelledby="hero-title">
+    <div class="hero-media">
+      <!-- REPLACE WITH REAL VENUE PHOTOS -->
+      <img src="https://picsum.photos/seed/eventhall-hero/1920/1080" width="1920" height="1080" fetchpriority="high"
+           alt="The EventHall Grand Ballroom at dusk, set with candlelit round tables beneath crystal chandeliers">
+    </div>
+    <div class="container">
+      <div class="hero-content">
+        <span class="eyebrow">Weddings · Birthdays · Corporate</span>
+        <h1 id="hero-title">Beautiful occasions. <em>Effortless bookings.</em></h1>
+        <p class="hero-tagline">Three elegant spaces, one dedicated team and a simple booking process, so you can spend less time planning and more time celebrating.</p>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="#inquiry" data-focus="eventType">Check your date</a>
+          <a class="btn btn-ghost-light" href="#contact" data-focus="tourName">Book a tour</a>
+        </div>
+        <ul class="hero-meta">
+          <li>Up to 450 guests</li>
+          <li>In-house catering &amp; bar</li>
+          <li>Step-free access throughout</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= POSITIONING + HIGHLIGHTS ======================= -->
+  <section class="section" id="about" aria-labelledby="about-title">
+    <div class="container">
+      <div class="intro-grid">
+        <div>
+          <span class="eyebrow">Welcome to EventHall</span>
+          <h2 id="about-title">A timeless setting, shaped around your day</h2>
+          <p class="lead">From candlelit wedding receptions to milestone birthdays and polished corporate gatherings, EventHall combines refined architecture with a team that sweats every detail. You choose the space and the mood. We handle the logistics.</p>
+        </div>
+        <ul class="stats" aria-label="Venue at a glance">
+          <li><strong>3</strong><span>versatile spaces</span></li>
+          <li><strong>450</strong><span>max. standing guests</span></li>
+          <li><strong>1</strong><span>dedicated coordinator</span></li>
+        </ul>
+      </div>
+
+      <ul class="highlights">
+        <li class="highlight">
+          <!-- REPLACE WITH REAL VENUE PHOTOS -->
+          <img src="https://picsum.photos/seed/eh-ballroom-card/800/600" width="800" height="600" loading="lazy" decoding="async"
+               alt="Grand Ballroom with high ceilings, chandeliers and a polished dance floor">
+          <div class="highlight-body">
+            <h3>Grand Ballroom</h3>
+            <p>Our signature room for grand receptions and gala dinners, for up to 300 guests seated.</p>
+            <a class="text-link" href="#space-grand-ballroom">Explore the Ballroom →</a>
+          </div>
+        </li>
+        <li class="highlight">
+          <!-- REPLACE WITH REAL VENUE PHOTOS -->
+          <img src="https://picsum.photos/seed/eh-garden-card/800/600" width="800" height="600" loading="lazy" decoding="async"
+               alt="Garden Terrace with festoon lighting, greenery and a covered pergola">
+          <div class="highlight-body">
+            <h3>Garden Terrace</h3>
+            <p>Open-air ceremonies and summer parties under festoon lights, with a weather-ready canopy.</p>
+            <a class="text-link" href="#space-garden-terrace">Explore the Terrace →</a>
+          </div>
+        </li>
+        <li class="highlight">
+          <!-- REPLACE WITH REAL VENUE PHOTOS -->
+          <img src="https://picsum.photos/seed/eh-lounge-card/800/600" width="800" height="600" loading="lazy" decoding="async"
+               alt="Private Lounge with velvet seating, warm lamps and a private bar">
+          <div class="highlight-body">
+            <h3>Private Lounge</h3>
+            <p>An intimate, fully private room for small celebrations, dinners and board meetings.</p>
+            <a class="text-link" href="#space-private-lounge">Explore the Lounge →</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ======================= GALLERY PREVIEW ======================= -->
+  <section class="section section-alt" id="moments" aria-labelledby="preview-title">
+    <div class="container">
+      <div class="section-head center">
+        <span class="eyebrow">Moments at EventHall</span>
+        <h2 id="preview-title">A glimpse of what's possible</h2>
+      </div>
+      <ul class="preview-grid">
+        <!-- Each button opens the lightbox at the matching GALLERY_ITEMS index -->
+        <li><button type="button" data-preview-index="0" aria-label="Open photo: Grand Ballroom wedding reception">
+          <!-- REPLACE WITH REAL VENUE PHOTOS -->
+          <img src="https://picsum.photos/seed/eh-wed-1/600/450" width="600" height="450" loading="lazy" decoding="async" alt="Round banquet tables with ivory linens and candlelit centrepieces in the Grand Ballroom">
+        </button></li>
+        <li><button type="button" data-preview-index="4" aria-label="Open photo: Garden Terrace birthday drinks">
+          <!-- REPLACE WITH REAL VENUE PHOTOS -->
+          <img src="https://picsum.photos/seed/eh-bday-2/600/450" width="600" height="450" loading="lazy" decoding="async" alt="Sunset birthday drinks beneath festoon lights on the Garden Terrace">
+        </button></li>
+        <li><button type="button" data-preview-index="6" aria-label="Open photo: Corporate conference in the Grand Ballroom">
+          <!-- REPLACE WITH REAL VENUE PHOTOS -->
+          <img src="https://picsum.photos/seed/eh-corp-1/600/450" width="600" height="450" loading="lazy" decoding="async" alt="Theatre-style conference seating facing a stage with two presentation screens">
+        </button></li>
+        <li><button type="button" data-preview-index="9" aria-label="Open photo: Floral centrepiece decor detail">
+          <!-- REPLACE WITH REAL VENUE PHOTOS -->
+          <img src="https://picsum.photos/seed/eh-decor-1/600/450" width="600" height="450" loading="lazy" decoding="async" alt="Tall floral centrepiece of blush peonies and eucalyptus on a gold-rimmed table">
+        </button></li>
+      </ul>
+      <div class="preview-actions">
+        <a class="btn btn-secondary" href="#gallery">View the full gallery</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= TESTIMONIAL (SAMPLE) ======================= -->
+  <section class="section" aria-labelledby="testimonial-title">
+    <div class="container">
+      <figure class="testimonial">
+        <h2 id="testimonial-title" class="visually-hidden">What our clients say</h2>
+        <span class="sample-badge">Sample testimonial: replace before launch</span>
+        <blockquote>
+          <p>From our first tour to the last dance, everything felt effortless. The team anticipated every detail and our guests still talk about the ballroom.</p>
+        </blockquote>
+        <figcaption>Sample Client · Wedding reception, Grand Ballroom</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ======================= CONTACT SUMMARY ======================= -->
+  <section class="section contact-strip on-dark" aria-labelledby="strip-title">
+    <div class="container contact-strip-grid">
+      <div>
+        <h2 id="strip-title">Let's plan your occasion</h2>
+        <p>Our events team replies within one business day.</p>
+      </div>
+      <ul class="strip-list">
+        <li><a href="tel:+15550100199">+1 (555) 010-0199</a></li>
+        <li><a href="mailto:hello@eventhall.example">hello@eventhall.example</a></li>
+        <li>123 Celebration Avenue, Springfield</li>
+      </ul>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="#inquiry" data-focus="eventType">Check your date</a>
+        <a class="btn btn-ghost-light" href="#contact" data-focus="tourName">Book a tour</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= SPACES ======================= -->
+  <section class="section section-alt" id="spaces" aria-labelledby="spaces-title">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Our spaces</span>
+        <h2 id="spaces-title">Three rooms, endlessly adaptable</h2>
+        <p class="lead">Every space can be styled to suit your event. Capacities are guides for comfort and safety. Your coordinator will confirm the final layout.</p>
+      </div>
+
+      <ul class="spaces-grid">
+        <!-- Grand Ballroom -->
+        <li class="space-card anchor" id="space-grand-ballroom">
+          <!-- REPLACE WITH REAL VENUE PHOTOS -->
+          <img src="https://picsum.photos/seed/eh-space-ballroom/960/600" width="960" height="600" loading="lazy" decoding="async"
+               alt="Grand Ballroom set for a gala dinner with long banquet tables, gold chairs and chandeliers">
+          <div class="space-body">
+            <h3>Grand Ballroom</h3>
+            <p>Soaring ceilings, three crystal chandeliers and a sprung dance floor. Made for weddings, galas and conferences.</p>
+            <dl class="capacity">
+              <div><dt>Seated</dt><dd>300</dd></div>
+              <div><dt>Standing</dt><dd>450</dd></div>
+            </dl>
+            <dl class="space-specs">
+              <div><dt>Layouts</dt><dd><ul class="tag-list"><li>Banquet rounds</li><li>Long tables</li><li>Theatre</li><li>Cabaret</li><li>Cocktail</li></ul></dd></div>
+              <div><dt>Inclusions</dt><dd>Tables, chairs, ivory linens, staging, dance floor, house lighting, on-site coordinator.</dd></div>
+              <div><dt>Amenities</dt><dd>Built-in PA &amp; wireless mics, 2 projection screens, dimmable lighting, bridal suite, coat check, Wi-Fi.</dd></div>
+              <div><dt>Parking</dt><dd>On-site lot (120 spaces) plus optional valet service.</dd></div>
+              <div><dt>Accessibility</dt><dd>Step-free entrance, ramp to stage, accessible restrooms on the same level, hearing loop.</dd></div>
+            </dl>
+            <button type="button" class="btn btn-primary btn-block" data-enquire-room="grand-ballroom">Enquire about this space</button>
+          </div>
+        </li>
+
+        <!-- Garden Terrace -->
+        <li class="space-card anchor" id="space-garden-terrace">
+          <!-- REPLACE WITH REAL VENUE PHOTOS -->
+          <img src="https://picsum.photos/seed/eh-space-garden/960/600" width="960" height="600" loading="lazy" decoding="async"
+               alt="Garden Terrace ceremony setup with white chairs, a floral arch and hedged lawns">
+          <div class="space-body">
+            <h3>Garden Terrace</h3>
+            <p>A landscaped terrace with a retractable canopy, perfect for ceremonies, cocktail hours and summer celebrations.</p>
+            <dl class="capacity">
+              <div><dt>Seated</dt><dd>150</dd></div>
+              <div><dt>Standing</dt><dd>220</dd></div>
+            </dl>
+            <dl class="space-specs">
+              <div><dt>Layouts</dt><dd><ul class="tag-list"><li>Ceremony rows</li><li>Long tables</li><li>Cocktail</li><li>Lounge clusters</li></ul></dd></div>
+              <div><dt>Inclusions</dt><dd>Ceremony chairs, high tables, festoon lighting, retractable canopy, patio heaters.</dd></div>
+              <div><dt>Amenities</dt><dd>Outdoor bar, weatherproof sound system, wet-weather plan in the Ballroom foyer.</dd></div>
+              <div><dt>Parking</dt><dd>Shared on-site lot; garden-side drop-off point for guests.</dd></div>
+              <div><dt>Accessibility</dt><dd>Level paved paths, step-free access from the main building, accessible restrooms nearby.</dd></div>
+            </dl>
+            <button type="button" class="btn btn-primary btn-block" data-enquire-room="garden-terrace">Enquire about this space</button>
+          </div>
+        </li>
+
+        <!-- Private Lounge -->
+        <li class="space-card anchor" id="space-private-lounge">
+          <!-- REPLACE WITH REAL VENUE PHOTOS -->
+          <img src="https://picsum.photos/seed/eh-space-lounge/960/600" width="960" height="600" loading="lazy" decoding="async"
+               alt="Private Lounge with a single long dining table, velvet chairs and low pendant lighting">
+          <div class="space-body">
+            <h3>Private Lounge</h3>
+            <p>An intimate, fully private room with its own bar, ideal for dinners, birthdays, rehearsal parties and meetings.</p>
+            <dl class="capacity">
+              <div><dt>Seated</dt><dd>40</dd></div>
+              <div><dt>Standing</dt><dd>70</dd></div>
+            </dl>
+            <dl class="space-specs">
+              <div><dt>Layouts</dt><dd><ul class="tag-list"><li>Boardroom</li><li>Single long table</li><li>U-shape</li><li>Lounge</li></ul></dd></div>
+              <div><dt>Inclusions</dt><dd>Furniture, linens, private bar, dedicated host, background music system.</dd></div>
+              <div><dt>Amenities</dt><dd>75" display with HDMI &amp; wireless casting, video-conference camera, Wi-Fi, separate entrance.</dd></div>
+              <div><dt>Parking</dt><dd>Shared on-site lot; 4 reserved spaces available on request.</dd></div>
+              <div><dt>Accessibility</dt><dd>Ground-floor room, step-free entrance, accessible restroom adjacent.</dd></div>
+            </dl>
+            <button type="button" class="btn btn-primary btn-block" data-enquire-room="private-lounge">Enquire about this space</button>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ======================= GALLERY ======================= -->
+  <section class="section" id="gallery" aria-labelledby="gallery-title">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Gallery</span>
+        <h2 id="gallery-title">Real moments, real rooms</h2>
+        <p class="lead">Filter by occasion or by space. Select any photo to view it full screen.</p>
+      </div>
+
+      <div class="filters">
+        <fieldset class="filter-group">
+          <legend>Occasion</legend>
+          <div class="chips" data-filter-group="cat">
+            <button type="button" class="chip" data-value="all" aria-pressed="true">All</button>
+            <button type="button" class="chip" data-value="weddings" aria-pressed="false">Weddings</button>
+            <button type="button" class="chip" data-value="birthdays" aria-pressed="false">Birthdays</button>
+            <button type="button" class="chip" data-value="corporate" aria-pressed="false">Corporate</button>
+            <button type="button" class="chip" data-value="decor" aria-pressed="false">Decor</button>
+          </div>
+        </fieldset>
+        <fieldset class="filter-group">
+          <legend>Space</legend>
+          <div class="chips" data-filter-group="room">
+            <button type="button" class="chip" data-value="all" aria-pressed="true">All spaces</button>
+            <button type="button" class="chip" data-value="grand-ballroom" aria-pressed="false">Grand Ballroom</button>
+            <button type="button" class="chip" data-value="garden-terrace" aria-pressed="false">Garden Terrace</button>
+            <button type="button" class="chip" data-value="private-lounge" aria-pressed="false">Private Lounge</button>
+          </div>
+        </fieldset>
+      </div>
+
+      <p class="gallery-status" id="gallery-status" role="status" aria-live="polite">Showing all photos</p>
+      <ul class="gallery-grid" id="gallery-grid" aria-labelledby="gallery-title"></ul>
+      <div class="empty-state" id="gallery-empty" hidden>
+        <h3>No photos match these filters yet</h3>
+        <p>Try another occasion or space, or reset the filters to see everything.</p>
+        <button type="button" class="btn btn-secondary" id="gallery-reset">Reset filters</button>
+      </div>
+      <noscript><p>Please enable JavaScript to browse the full gallery.</p></noscript>
+    </div>
+  </section>
+
+  <!-- ======================= PACKAGES ======================= -->
+  <section class="section section-alt" id="packages" aria-labelledby="packages-title">
+    <div class="container">
+      <div class="section-head center">
+        <span class="eyebrow">Packages</span>
+        <h2 id="packages-title">Thoughtfully curated, fully tailored</h2>
+        <p class="lead">Every event is different, so every quote is too. Pick a starting point and we'll tailor it to your date, guest count and style.</p>
+      </div>
+
+      <ul class="packages-grid">
+        <li class="package">
+          <div>
+            <h3>Essential</h3>
+            <p class="package-sub">Venue hire with the essentials covered.</p>
+          </div>
+          <div><h4>Includes</h4>
+            <ul class="check-list">
+              <li>Up to 5 hours of exclusive space hire</li>
+              <li>Tables, chairs &amp; standard linens</li>
+              <li>House sound system &amp; lighting</li>
+              <li>On-the-day event coordinator</li>
+              <li>Setup &amp; standard cleanup</li>
+            </ul>
+          </div>
+          <div><h4>Minimum requirements</h4>
+            <ul class="dash-list"><li>From 20 guests</li><li>Minimum 3-hour booking</li><li>Monday–Thursday or daytime events</li></ul>
+          </div>
+          <div><h4>Popular add-ons</h4>
+            <ul class="dash-list"><li>Dance floor &amp; uplighting</li><li>Canapé &amp; drinks reception</li><li>Photo booth</li></ul>
+          </div>
+          <div><h4>Not included</h4>
+            <ul class="dash-list"><li>Catering &amp; bar service</li><li>Florals &amp; styling</li><li>Entertainment</li></ul>
+          </div>
+          <button type="button" class="btn btn-secondary btn-block" data-quote-package="essential">Request a quote</button>
+        </li>
+
+        <li class="package featured">
+          <span class="package-badge">Most requested</span>
+          <div>
+            <h3>Signature</h3>
+            <p class="package-sub">Our complete, hosted celebration.</p>
+          </div>
+          <div><h4>Includes</h4>
+            <ul class="check-list">
+              <li>Up to 8 hours of exclusive space hire</li>
+              <li>Three-course seated dinner or grazing menu</li>
+              <li>4-hour house beverage package</li>
+              <li>Centrepieces, candles &amp; premium linens</li>
+              <li>Dedicated planner from booking to event day</li>
+              <li>Dance floor, uplighting &amp; microphones</li>
+            </ul>
+          </div>
+          <div><h4>Minimum requirements</h4>
+            <ul class="dash-list"><li>From 60 guests</li><li>Minimum spend applies on Fridays &amp; Sundays</li><li>Final numbers 14 days before the event</li></ul>
+          </div>
+          <div><h4>Popular add-ons</h4>
+            <ul class="dash-list"><li>Champagne toast</li><li>Late-night snack station</li><li>Extended hours (subject to licence)</li></ul>
+          </div>
+          <div><h4>Not included</h4>
+            <ul class="dash-list"><li>Photography &amp; videography</li><li>Live entertainment</li><li>Specialty rentals</li></ul>
+          </div>
+          <button type="button" class="btn btn-primary btn-block" data-quote-package="signature">Request a quote</button>
+        </li>
+
+        <li class="package">
+          <div>
+            <h3>Grand</h3>
+            <p class="package-sub">Full-venue exclusivity, nothing overlooked.</p>
+          </div>
+          <div><h4>Includes</h4>
+            <ul class="check-list">
+              <li>Full-day exclusive use of all three spaces</li>
+              <li>Ceremony, reception &amp; after-party areas</li>
+              <li>Premium four-course menu &amp; canapés</li>
+              <li>Premium open bar throughout</li>
+              <li>Bridal / green suite &amp; valet parking</li>
+              <li>Lead planner plus styling consultation</li>
+            </ul>
+          </div>
+          <div><h4>Minimum requirements</h4>
+            <ul class="dash-list"><li>From 150 guests</li><li>Saturday minimum spend applies</li><li>Booking 6+ months ahead recommended</li></ul>
+          </div>
+          <div><h4>Popular add-ons</h4>
+            <ul class="dash-list"><li>String quartet or DJ booking</li><li>Bespoke floral installations</li><li>Morning-after brunch</li></ul>
+          </div>
+          <div><h4>Not included</h4>
+            <ul class="dash-list"><li>Guest accommodation</li><li>Guest transport</li><li>Third-party vendor fees</li></ul>
+          </div>
+          <button type="button" class="btn btn-secondary btn-block" data-quote-package="grand">Request a quote</button>
+        </li>
+      </ul>
+
+      <p class="fee-note"><strong>Taxes &amp; fees:</strong> All quotes are subject to applicable sales tax and a service charge, shown separately on your quote. Final pricing depends on date, guest count, menu and add-ons. Quotes are valid for 14 days. <em>(Sample wording: confirm rates and wording before launch.)</em></p>
+    </div>
+  </section>
+
+  <!-- ======================= INQUIRY FORM ======================= -->
+  <section class="section" id="inquiry" aria-labelledby="inquiry-title">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Availability</span>
+        <h2 id="inquiry-title">Check your date</h2>
+        <p class="lead">Tell us about your event and we'll confirm availability and send a tailored quote.</p>
+      </div>
+
+      <div class="inquiry-layout">
+        <aside class="inquiry-aside" aria-label="How booking works">
+          <div class="aside-card">
+            <h3>How it works</h3>
+            <ol class="steps">
+              <li><span>Send your request. It takes about two minutes.</span></li>
+              <li><span>We confirm availability and send a tailored quote within one business day.</span></li>
+              <li><span>Tour the venue in person or by video call.</span></li>
+              <li><span>Sign your booking agreement and pay the deposit to secure the date.</span></li>
+            </ol>
+          </div>
+          <div class="aside-card">
+            <h3>Prefer to talk?</h3>
+            <p>Call <a href="tel:+15550100199">+1 (555) 010-0199</a> or email <a href="mailto:hello@eventhall.example">hello@eventhall.example</a>.</p>
+          </div>
+        </aside>
+
+        <div class="form-card">
+          <div class="notice" role="note">
+            <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="#7A5F28" stroke-width="2"/><path d="M12 7v6M12 16.5v.5" stroke="#7A5F28" stroke-width="2" stroke-linecap="round"/></svg>
+            <div><strong>Submitting a request does not reserve your date.</strong>Dates are secured only once a booking agreement is signed and the deposit is received.</div>
+          </div>
+
+          <div class="alert alert-error" id="inquiry-alert" role="alert" tabindex="-1" hidden></div>
+
+          <form id="inquiry-form" novalidate data-form-name="Availability inquiry">
+            <div class="hp" aria-hidden="true">
+              <label for="inq-gotcha">Leave this field empty</label>
+              <input type="text" id="inq-gotcha" name="_gotcha" tabindex="-1" autocomplete="off">
+            </div>
+
+            <fieldset class="form-section">
+              <legend>Your event</legend>
+              <div class="form-grid two">
+                <div class="field">
+                  <label for="eventType">Event type <span class="req" aria-hidden="true">*</span></label>
+                  <select id="eventType" name="event_type" class="select" required aria-describedby="eventType-error">
+                    <option value="">Select an event type</option>
+                    <option value="Wedding">Wedding</option>
+                    <option value="Engagement party">Engagement party</option>
+                    <option value="Birthday">Birthday</option>
+                    <option value="Anniversary">Anniversary</option>
+                    <option value="Corporate event">Corporate event</option>
+                    <option value="Conference or meeting">Conference or meeting</option>
+                    <option value="Other">Other</option>
+                  </select>
+                  <p class="field-error" id="eventType-error"></p>
+                </div>
+                <div class="field">
+                  <label for="eventDate">Preferred date <span class="req" aria-hidden="true">*</span></label>
+                  <input type="date" id="eventDate" name="event_date" class="input" required aria-describedby="eventDate-error">
+                  <p class="field-error" id="eventDate-error"></p>
+                </div>
+                <div class="field">
+                  <label for="startTime">Start time <span class="req" aria-hidden="true">*</span></label>
+                  <input type="time" id="startTime" name="start_time" class="input" required step="900" aria-describedby="startTime-error">
+                  <p class="field-error" id="startTime-error"></p>
+                </div>
+                <div class="field">
+                  <label for="endTime">End time <span class="req" aria-hidden="true">*</span></label>
+                  <input type="time" id="endTime" name="end_time" class="input" required step="900" aria-describedby="endTime-hint endTime-error">
+                  <p class="hint" id="endTime-hint">Finishing after midnight? Pick the end time and we'll treat it as the next day.</p>
+                  <p class="field-error" id="endTime-error"></p>
+                </div>
+                <div class="field">
+                  <label for="guestCount">Guest count <span class="req" aria-hidden="true">*</span></label>
+                  <input type="number" id="guestCount" name="guest_count" class="input" required min="1" max="450" step="1" inputmode="numeric" aria-describedby="guestCount-hint guestCount-error">
+                  <p class="hint" id="guestCount-hint">Approximate is fine. Up to 450 guests.</p>
+                  <p class="field-error" id="guestCount-error"></p>
+                </div>
+                <div class="field">
+                  <label for="room">Room preference <span class="optional">(optional)</span></label>
+                  <select id="room" name="room" class="select" aria-describedby="room-error">
+                    <option value="no-preference">No preference / advise me</option>
+                    <option value="grand-ballroom">Grand Ballroom (300 seated / 450 standing)</option>
+                    <option value="garden-terrace">Garden Terrace (150 seated / 220 standing)</option>
+                    <option value="private-lounge">Private Lounge (40 seated / 70 standing)</option>
+                  </select>
+                  <p class="field-error" id="room-error"></p>
+                </div>
+                <div class="field span-2">
+                  <label for="package">Package of interest <span class="optional">(optional)</span></label>
+                  <select id="package" name="package" class="select">
+                    <option value="undecided">Not sure yet</option>
+                    <option value="essential">Essential</option>
+                    <option value="signature">Signature</option>
+                    <option value="grand">Grand</option>
+                  </select>
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset class="form-section">
+              <legend>Your details</legend>
+              <div class="form-grid two">
+                <div class="field span-2">
+                  <label for="fullName">Full name <span class="req" aria-hidden="true">*</span></label>
+                  <input type="text" id="fullName" name="name" class="input" required autocomplete="name" aria-describedby="fullName-error">
+                  <p class="field-error" id="fullName-error"></p>
+                </div>
+                <div class="field">
+                  <label for="email">Email <span class="req" aria-hidden="true">*</span></label>
+                  <input type="email" id="email" name="email" class="input" required autocomplete="email" inputmode="email" aria-describedby="email-error">
+                  <p class="field-error" id="email-error"></p>
+                </div>
+                <div class="field">
+                  <label for="phone">Phone <span class="req" aria-hidden="true">*</span></label>
+                  <input type="tel" id="phone" name="phone" class="input" required autocomplete="tel" inputmode="tel" aria-describedby="phone-error">
+                  <p class="field-error" id="phone-error"></p>
+                </div>
+                <div class="field span-2">
+                  <label for="details">Tell us about your event <span class="optional">(optional)</span></label>
+                  <textarea id="details" name="description" class="textarea" maxlength="1000" aria-describedby="details-count"></textarea>
+                  <p class="char-count" id="details-count" aria-live="polite">0 / 1000 characters</p>
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset class="form-section">
+              <legend>Consent</legend>
+              <div class="form-grid">
+                <div class="check">
+                  <input type="checkbox" id="terms" name="terms_accepted" value="yes" required aria-describedby="terms-error">
+                  <label for="terms">I agree to the <a href="#faq-booking">booking terms</a> and <a href="#faq-privacy">privacy policy</a>. <span class="req" aria-hidden="true">*</span><span class="visually-hidden">(required)</span></label>
+                  <p class="field-error" id="terms-error"></p>
+                </div>
+                <div class="check">
+                  <input type="checkbox" id="marketing" name="marketing_consent" value="yes">
+                  <label for="marketing">Optional: send me occasional news, open days and seasonal offers. You can unsubscribe at any time.</label>
+                </div>
+              </div>
+            </fieldset>
+
+            <p class="hint" style="margin-bottom: var(--space-4);"><span class="req" aria-hidden="true">*</span> Required field</p>
+            <button type="submit" class="btn btn-primary btn-block" id="inquiry-submit">
+              <span class="btn-label">Send availability request</span>
+            </button>
+          </form>
+
+          <div class="form-success" id="inquiry-success" tabindex="-1" hidden>
+            <div class="success-icon" aria-hidden="true">✓</div>
+            <h3>Thank you, your request has been received</h3>
+            <p>Your request reference:</p>
+            <div class="ref-box">
+              <span class="ref-code" data-ref></span>
+              <button type="button" class="copy-btn" data-copy-ref>Copy</button>
+            </div>
+            <p>Our events team will confirm availability and reply within one business day. Please quote your reference in any correspondence.</p>
+            <p><strong>Reminder:</strong> your date is not reserved until a booking agreement is signed and the deposit is received.</p>
+            <p class="demo-note" data-demo-note hidden>Demo mode: the form endpoint isn't configured yet, so no data was sent.</p>
+            <button type="button" class="btn btn-secondary" data-reset-form>Send another request</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= CONTACT / TOUR ======================= -->
+  <section class="section section-alt" id="contact" aria-labelledby="contact-title">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Visit us</span>
+        <h2 id="contact-title">Contact &amp; venue tours</h2>
+        <p class="lead">Seeing the spaces in person is the best way to plan. Book a private tour and we'll walk you through every room.</p>
+      </div>
+
+      <div class="contact-layout">
+        <div class="aside-card">
+          <dl class="info-list">
+            <div>
+              <dt>Address</dt>
+              <dd><address>EventHall<br>123 Celebration Avenue<br>Springfield, ST 00000</address>
+                <a class="text-link" href="https://www.google.com/maps/search/?api=1&amp;query=123+Celebration+Avenue+Springfield" target="_blank" rel="noopener">Get directions<span class="visually-hidden"> (opens Google Maps in a new tab)</span> ↗</a>
+              </dd>
+            </div>
+            <div>
+              <dt>Parking</dt>
+              <dd>Free on-site parking for 120 cars, including 6 accessible bays at the main entrance. Valet available for evening events.</dd>
+            </div>
+            <div>
+              <dt>Office hours</dt>
+              <dd>
+                <table class="hours">
+                  <caption class="visually-hidden">Office hours</caption>
+                  <tbody>
+                    <tr><th scope="row">Mon–Fri</th><td>9:00 am – 6:00 pm</td></tr>
+                    <tr><th scope="row">Saturday</th><td>10:00 am – 4:00 pm</td></tr>
+                    <tr><th scope="row">Sunday</th><td>Tours by appointment</td></tr>
+                  </tbody>
+                </table>
+              </dd>
+            </div>
+            <div>
+              <dt>Phone</dt>
+              <dd><a class="text-link" href="tel:+15550100199">+1 (555) 010-0199</a></dd>
+            </div>
+            <div>
+              <dt>Email</dt>
+              <dd><a class="text-link" href="mailto:hello@eventhall.example">hello@eventhall.example</a></dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="form-card">
+          <h3 id="tour-title">Request a tour</h3>
+          <p class="hint" style="margin-bottom: var(--space-5);">We'll confirm your tour time by email. Tours last about 45 minutes.</p>
+          <div class="alert alert-error" id="tour-alert" role="alert" tabindex="-1" hidden></div>
+
+          <form id="tour-form" novalidate aria-labelledby="tour-title" data-form-name="Tour request">
+            <div class="hp" aria-hidden="true">
+              <label for="tour-gotcha">Leave this field empty</label>
+              <input type="text" id="tour-gotcha" name="_gotcha" tabindex="-1" autocomplete="off">
+            </div>
+            <div class="form-grid two">
+              <div class="field span-2">
+                <label for="tourName">Full name <span class="req" aria-hidden="true">*</span></label>
+                <input type="text" id="tourName" name="name" class="input" required autocomplete="name" aria-describedby="tourName-error">
+                <p class="field-error" id="tourName-error"></p>
+              </div>
+              <div class="field">
+                <label for="tourEmail">Email <span class="req" aria-hidden="true">*</span></label>
+                <input type="email" id="tourEmail" name="email" class="input" required autocomplete="email" inputmode="email" aria-describedby="tourEmail-error">
+                <p class="field-error" id="tourEmail-error"></p>
+              </div>
+              <div class="field">
+                <label for="tourPhone">Phone <span class="optional">(optional)</span></label>
+                <input type="tel" id="tourPhone" name="phone" class="input" autocomplete="tel" inputmode="tel" aria-describedby="tourPhone-error">
+                <p class="field-error" id="tourPhone-error"></p>
+              </div>
+              <div class="field span-2">
+                <label for="tourDate">Preferred tour date <span class="req" aria-hidden="true">*</span></label>
+                <input type="date" id="tourDate" name="preferred_date" class="input" required aria-describedby="tourDate-error">
+                <p class="field-error" id="tourDate-error"></p>
+              </div>
+              <div class="field span-2">
+                <label for="tourMessage">Message <span class="optional">(optional)</span></label>
+                <textarea id="tourMessage" name="message" class="textarea" maxlength="600" placeholder="e.g. Preferred time of day, spaces you'd like to see"></textarea>
+              </div>
+            </div>
+            <p class="hint" style="margin: var(--space-4) 0;">We use your details only to arrange your tour. See our <a href="#faq-privacy">privacy policy</a>.</p>
+            <button type="submit" class="btn btn-primary btn-block" id="tour-submit"><span class="btn-label">Request a tour</span></button>
+          </form>
+
+          <div class="form-success" id="tour-success" tabindex="-1" hidden>
+            <div class="success-icon" aria-hidden="true">✓</div>
+            <h3>Tour request received</h3>
+            <p>Your reference:</p>
+            <div class="ref-box">
+              <span class="ref-code" data-ref></span>
+              <button type="button" class="copy-btn" data-copy-ref>Copy</button>
+            </div>
+            <p>We'll email you within one business day to confirm a time.</p>
+            <p class="demo-note" data-demo-note hidden>Demo mode: the form endpoint isn't configured yet, so no data was sent.</p>
+            <button type="button" class="btn btn-secondary" data-reset-form>Request another tour</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= FAQ & POLICIES ======================= -->
+  <section class="section" id="faqs" aria-labelledby="faqs-title">
+    <div class="container container-narrow">
+      <div class="section-head">
+        <span class="eyebrow">FAQs &amp; policies</span>
+        <h2 id="faqs-title">Good to know</h2>
+        <p class="policy-banner">⚑ Sample policy – confirm before launch</p>
+      </div>
+
+      <ul class="accordion" id="faq-list">
+        <li id="faq-catering" class="anchor">
+          <h3><button type="button" class="accordion-trigger" aria-expanded="false" aria-controls="faq-p-1" id="faq-b-1">Can we bring our own caterer?<span class="acc-icon" aria-hidden="true"></span></button></h3>
+          <div class="accordion-panel" id="faq-p-1" role="region" aria-labelledby="faq-b-1" hidden>
+            <span class="policy-tag">Sample policy – confirm before launch</span>
+            <p>Our in-house culinary team caters most events and can accommodate common dietary needs. External caterers may be approved for cultural or specialty cuisine, subject to proof of licensing and insurance and a kitchen-use fee.</p>
+          </div>
+        </li>
+        <li id="faq-alcohol" class="anchor">
+          <h3><button type="button" class="accordion-trigger" aria-expanded="false" aria-controls="faq-p-2" id="faq-b-2">What is your alcohol policy?<span class="acc-icon" aria-hidden="true"></span></button></h3>
+          <div class="accordion-panel" id="faq-p-2" role="region" aria-labelledby="faq-b-2" hidden>
+            <span class="policy-tag">Sample policy – confirm before launch</span>
+            <p>All alcohol is served by our licensed bar staff in line with local law. Guests must be of legal drinking age and may be asked for ID. Outside alcohol is not permitted unless agreed in writing; a corkage fee may apply.</p>
+          </div>
+        </li>
+        <li id="faq-noise" class="anchor">
+          <h3><button type="button" class="accordion-trigger" aria-expanded="false" aria-controls="faq-p-3" id="faq-b-3">Are there noise or music restrictions?<span class="acc-icon" aria-hidden="true"></span></button></h3>
+          <div class="accordion-panel" id="faq-p-3" role="region" aria-labelledby="faq-b-3" hidden>
+            <span class="policy-tag">Sample policy – confirm before launch</span>
+            <p>Amplified music on the Garden Terrace ends at 10:00 pm. Indoor music may continue until the end of your booking, subject to sound limits monitored by our team. Pyrotechnics and confetti cannons are not permitted.</p>
+          </div>
+        </li>
+        <li id="faq-setup" class="anchor">
+          <h3><button type="button" class="accordion-trigger" aria-expanded="false" aria-controls="faq-p-4" id="faq-b-4">When can we set up and decorate?<span class="acc-icon" aria-hidden="true"></span></button></h3>
+          <div class="accordion-panel" id="faq-p-4" role="region" aria-labelledby="faq-b-4" hidden>
+            <span class="policy-tag">Sample policy – confirm before launch</span>
+            <p>Setup access typically begins 3 hours before your start time and is included in most packages. Decorations must be free-standing. Nails, tape on walls and open flames (other than enclosed candles) are not permitted. Vendors must check in with your coordinator.</p>
+          </div>
+        </li>
+        <li id="faq-cleanup" class="anchor">
+          <h3><button type="button" class="accordion-trigger" aria-expanded="false" aria-controls="faq-p-5" id="faq-b-5">Who handles cleanup?<span class="acc-icon" aria-hidden="true"></span></button></h3>
+          <div class="accordion-panel" id="faq-p-5" role="region" aria-labelledby="faq-b-5" hidden>
+            <span class="policy-tag">Sample policy – confirm before launch</span>
+            <p>Standard cleanup is included. Personal items, gifts and vendor equipment must be removed within 1 hour of your end time unless next-day collection is arranged. Excessive cleaning or damage may be charged against your security deposit.</p>
+          </div>
+        </li>
+        <li id="faq-cancellations" class="anchor">
+          <h3><button type="button" class="accordion-trigger" aria-expanded="false" aria-controls="faq-p-6" id="faq-b-6">What is the cancellation and rescheduling policy?<span class="acc-icon" aria-hidden="true"></span></button></h3>
+          <div class="accordion-panel" id="faq-p-6" role="region" aria-labelledby="faq-b-6" hidden>
+            <span class="policy-tag">Sample policy – confirm before launch</span>
+            <p>Cancellations must be made in writing. Deposits are generally non-refundable. Rescheduling to an available date within 12 months may be possible once without penalty. Full terms are set out in your booking agreement.</p>
+          </div>
+        </li>
+        <li id="faq-accessibility" class="anchor">
+          <h3><button type="button" class="accordion-trigger" aria-expanded="false" aria-controls="faq-p-7" id="faq-b-7">Is the venue accessible?<span class="acc-icon" aria-hidden="true"></span></button></h3>
+          <div class="accordion-panel" id="faq-p-7" role="region" aria-labelledby="faq-b-7" hidden>
+            <span class="policy-tag">Sample policy – confirm before launch</span>
+            <p>All three spaces offer step-free access, with accessible restrooms and accessible parking bays near the entrance. The Grand Ballroom has a hearing loop and stage ramp. Service animals are welcome. Tell us about any access needs and we'll plan around them.</p>
+          </div>
+        </li>
+        <li id="faq-privacy" class="anchor">
+          <h3><button type="button" class="accordion-trigger" aria-expanded="false" aria-controls="faq-p-8" id="faq-b-8">How do you use my personal information?<span class="acc-icon" aria-hidden="true"></span></button></h3>
+          <div class="accordion-panel" id="faq-p-8" role="region" aria-labelledby="faq-b-8" hidden>
+            <span class="policy-tag">Sample policy – confirm before launch</span>
+            <p>We use the details you submit only to respond to your enquiry, arrange tours and manage your booking. We send marketing emails only if you opt in, and you can unsubscribe at any time. We do not sell your data. Contact us to access, correct or delete your information.</p>
+          </div>
+        </li>
+        <li id="faq-booking" class="anchor">
+          <h3><button type="button" class="accordion-trigger" aria-expanded="false" aria-controls="faq-p-9" id="faq-b-9">What are the booking terms?<span class="acc-icon" aria-hidden="true"></span></button></h3>
+          <div class="accordion-panel" id="faq-p-9" role="region" aria-labelledby="faq-b-9" hidden>
+            <span class="policy-tag">Sample policy – confirm before launch</span>
+            <p>An inquiry or quote does not reserve a date. Your booking is confirmed only when both parties sign the booking agreement and the deposit is received. Final guest numbers are due 14 days before the event. The hirer is responsible for guest conduct and any damage.</p>
+          </div>
+        </li>
+        <li id="faq-payment" class="anchor">
+          <h3><button type="button" class="accordion-trigger" aria-expanded="false" aria-controls="faq-p-10" id="faq-b-10">How do payments work?<span class="acc-icon" aria-hidden="true"></span></button></h3>
+          <div class="accordion-panel" id="faq-p-10" role="region" aria-labelledby="faq-b-10" hidden>
+            <span class="policy-tag">Sample policy – confirm before launch</span>
+            <p>A deposit (typically 25–30% of the estimated total) secures your date. The remaining balance is due 30 days before your event. A refundable security deposit may be required. We accept bank transfer and major cards; card payments may carry a processing fee.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<!-- ======================= FOOTER ======================= -->
+<footer class="site-footer on-dark">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <p class="footer-brand">EventHall</p>
+        <p>Beautiful occasions. Effortless bookings.</p>
+        <a class="btn btn-primary" href="#inquiry" data-focus="eventType">Check your date</a>
+      </div>
+      <nav aria-label="Footer">
+        <h2>Explore</h2>
+        <ul class="footer-links">
+          <li><a href="#spaces">Spaces</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#packages">Packages</a></li>
+          <li><a href="#inquiry">Availability</a></li>
+          <li><a href="#faqs">FAQs &amp; policies</a></li>
+        </ul>
+      </nav>
+      <div class="footer-contact">
+        <h2>Contact</h2>
+        <address>123 Celebration Avenue<br>Springfield, ST 00000</address>
+        <ul class="footer-links">
+          <li><a href="tel:+15550100199">+1 (555) 010-0199</a></li>
+          <li><a href="mailto:hello@eventhall.example">hello@eventhall.example</a></li>
+          <li><a href="#contact" data-focus="tourName">Book a tour</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Follow</h2>
+        <!-- REPLACE social URLs with your real profiles -->
+        <ul class="socials">
+          <li><a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="EventHall on Instagram (opens in a new tab)">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8C2.4 3.9 4 2.4 7.2 2.3 8.4 2.2 8.8 2.2 12 2.2zm0 4.9a4.9 4.9 0 1 0 0 9.8 4.9 4.9 0 0 0 0-9.8zm0 8.1a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zm5.1-9.4a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4z"/></svg>
+          </a></li>
+          <li><a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="EventHall on Facebook (opens in a new tab)">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.8c0-.9.3-1.5 1.6-1.5h1.7V4.4c-.3 0-1.3-.1-2.4-.1-2.4 0-4.1 1.5-4.1 4.2v2.3H7.6V14h2.7v8h3.2z"/></svg>
+          </a></li>
+          <li><a href="https://www.pinterest.com/" target="_blank" rel="noopener" aria-label="EventHall on Pinterest (opens in a new tab)">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.6 19.3c-.1-.8-.2-2 0-2.9l1.2-5s-.3-.6-.3-1.5c0-1.4.8-2.4 1.8-2.4.9 0 1.3.6 1.3 1.4 0 .9-.5 2.1-.8 3.3-.2 1 .5 1.8 1.5 1.8 1.8 0 3.1-1.9 3.1-4.6 0-2.4-1.7-4.1-4.2-4.1-2.9 0-4.5 2.1-4.5 4.4 0 .9.3 1.8.8 2.3.1.1.1.2.1.3l-.3 1.2c0 .2-.2.2-.4.1-1.3-.6-2.1-2.5-2.1-4 0-3.3 2.4-6.3 6.9-6.3 3.6 0 6.4 2.6 6.4 6 0 3.6-2.3 6.5-5.4 6.5-1.1 0-2.1-.6-2.4-1.2l-.7 2.5c-.2.9-.9 2.1-1.3 2.8A10 10 0 1 0 12 2z"/></svg>
+          </a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p style="margin:0">© <span id="year">2026</span> EventHall. All rights reserved.</p>
+      <ul>
+        <li><a href="#faq-privacy">Privacy</a></li>
+        <li><a href="#faq-booking">Booking terms</a></li>
+        <li><a href="#faq-accessibility">Accessibility</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<!-- ======================= LIGHTBOX ======================= -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-labelledby="lb-title" hidden>
+  <p class="lb-counter" id="lb-counter" aria-live="polite"></p>
+  <button type="button" class="lb-btn lb-close" id="lb-close" aria-label="Close gallery (Esc)">✕</button>
+  <button type="button" class="lb-btn lb-prev" id="lb-prev" aria-label="Previous photo">‹</button>
+  <figure>
+    <!-- REPLACE WITH REAL VENUE PHOTOS (src set dynamically from GALLERY_ITEMS) -->
+    <img id="lb-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt="">
+    <figcaption><strong id="lb-title">Gallery</strong><span id="lb-caption"></span></figcaption>
+  </figure>
+  <button type="button" class="lb-btn lb-next" id="lb-next" aria-label="Next photo">›</button>
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  /* =========================================================
+     CONFIG: REPLACE BEFORE LAUNCH
+     ========================================================= */
+  const FORM_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
+  const DEMO_MODE = FORM_ENDPOINT.includes('YOUR_FORM_ID');
+  const CONTACT_FALLBACK = 'call +1 (555) 010-0199 or email hello@eventhall.example';
+
+  const ROOMS = {
+    'grand-ballroom': { name: 'Grand Ballroom', seated: 300, standing: 450 },
+    'garden-terrace': { name: 'Garden Terrace', seated: 150, standing: 220 },
+    'private-lounge': { name: 'Private Lounge', seated: 40, standing: 70 }
+  };
+  const CATEGORY_LABELS = { weddings: 'Weddings', birthdays: 'Birthdays', corporate: 'Corporate', decor: 'Decor' };
+
+  /* Gallery data: every entry is a placeholder image */
+  const GALLERY_ITEMS = [
+    { seed: 'eh-wed-1',   cat: 'weddings',  room: 'grand-ballroom', title: 'Candlelit reception', alt: 'Round banquet tables with ivory linens and candlelit centrepieces in the Grand Ballroom' }, // REPLACE WITH REAL VENUE PHOTOS
+    { seed: 'eh-wed-2',   cat: 'weddings',  room: 'garden-terrace', title: 'Garden ceremony', alt: 'Outdoor ceremony aisle lined with white roses and rows of chairs on the Garden Terrace' }, // REPLACE WITH REAL VENUE PHOTOS
+    { seed: 'eh-wed-3',   cat: 'weddings',  room: 'grand-ballroom', title: 'First dance', alt: 'Couple sharing their first dance beneath crystal chandeliers on the Ballroom dance floor' }, // REPLACE WITH REAL VENUE PHOTOS
+    { seed: 'eh-bday-1',  cat: 'birthdays', room: 'private-lounge', title: 'Intimate birthday dinner', alt: 'Birthday dinner table set for twelve with candles and a tiered cake in the Private Lounge' }, // REPLACE WITH REAL VENUE PHOTOS
+    { seed: 'eh-bday-2',  cat: 'birthdays', room: 'garden-terrace', title: 'Sunset celebration', alt: 'Sunset birthday drinks beneath festoon lights on the Garden Terrace' }, // REPLACE WITH REAL VENUE PHOTOS
+    { seed: 'eh-bday-3',  cat: 'birthdays', room: 'grand-ballroom', title: 'Milestone party', alt: 'Milestone birthday party with a gold balloon arch and a busy dance floor in the Grand Ballroom' }, // REPLACE WITH REAL VENUE PHOTOS
+    { seed: 'eh-corp-1',  cat: 'corporate', room: 'grand-ballroom', title: 'Annual conference', alt: 'Theatre-style conference seating facing a stage with two presentation screens' }, // REPLACE WITH REAL VENUE PHOTOS
+    { seed: 'eh-corp-2',  cat: 'corporate', room: 'private-lounge', title: 'Board meeting', alt: 'Boardroom-style table with notepads, water service and a wall-mounted display in the Private Lounge' }, // REPLACE WITH REAL VENUE PHOTOS
+    { seed: 'eh-corp-3',  cat: 'corporate', room: 'garden-terrace', title: 'Networking reception', alt: 'Guests networking around high cocktail tables on the Garden Terrace in early evening' }, // REPLACE WITH REAL VENUE PHOTOS
+    { seed: 'eh-decor-1', cat: 'decor',     room: 'grand-ballroom', title: 'Floral centrepiece', alt: 'Tall floral centrepiece of blush peonies and eucalyptus on a gold-rimmed table' }, // REPLACE WITH REAL VENUE PHOTOS
+    { seed: 'eh-decor-2', cat: 'decor',     room: 'private-lounge', title: 'Champagne table styling', alt: 'Champagne-toned table styling with gold cutlery, taper candles and folded linen napkins' }, // REPLACE WITH REAL VENUE PHOTOS
+    { seed: 'eh-decor-3', cat: 'decor',     room: 'garden-terrace', title: 'Lantern installation', alt: 'Hanging greenery and glass lantern installation over the terrace dining area' } // REPLACE WITH REAL VENUE PHOTOS
+  ];
+  const imgUrl = (seed, w, h) => `https://picsum.photos/seed/${seed}/${w}/${h}`;
+
+  const $ = (sel, ctx = document) => ctx.querySelector(sel);
+  const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  /* =========================================================
+     UTILITIES
+     ========================================================= */
+  function scrollToAndFocus(target, focusEl) {
+    if (!target) return;
+    target.scrollIntoView({ behavior: reducedMotion.matches ? 'auto' : 'smooth', block: 'start' });
+    if (focusEl) {
+      setTimeout(() => focusEl.focus({ preventScroll: true }), reducedMotion.matches ? 0 : 450);
+    }
+  }
+  function todayISO() {
+    const d = new Date();
+    d.setMinutes(d.getMinutes() - d.getTimezoneOffset());
+    return d.toISOString().slice(0, 10);
+  }
+  function generateReference() {
+    const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+    const arr = new Uint32Array(5);
+    (window.crypto || window.msCrypto).getRandomValues(arr);
+    let code = '';
+    arr.forEach(n => { code += chars[n % chars.length]; });
+    return `EH-${new Date().getFullYear()}-${code}`;
+  }
+
+  /* =========================================================
+     NAVIGATION
+     ========================================================= */
+  const navToggle = $('.nav-toggle');
+  const nav = $('#primary-nav');
+  const desktopMQ = window.matchMedia('(min-width: 1000px)');
+
+  function setMenu(open) {
+    navToggle.setAttribute('aria-expanded', String(open));
+    navToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    nav.classList.toggle('is-open', open);
+  }
+  navToggle.addEventListener('click', () => setMenu(navToggle.getAttribute('aria-expanded') !== 'true'));
+  nav.addEventListener('click', e => { if (e.target.closest('a') && !desktopMQ.matches) setMenu(false); });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && nav.classList.contains('is-open')) { setMenu(false); navToggle.focus(); }
+  });
+  document.addEventListener('click', e => {
+    if (nav.classList.contains('is-open') && !e.target.closest('.site-header')) setMenu(false);
+  });
+  desktopMQ.addEventListener('change', () => setMenu(false));
+
+  /* Links with data-focus: scroll and focus a field */
+  $$('a[data-focus]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = $(a.getAttribute('href'));
+      const field = document.getElementById(a.dataset.focus);
+      if (!target) return;
+      e.preventDefault();
+      history.replaceState(null, '', a.getAttribute('href'));
+      // If the form was replaced by a success message, focus that instead
+      const form = field && field.closest('form');
+      const focusEl = form && form.hidden ? form.nextElementSibling : field;
+      scrollToAndFocus(target, focusEl);
+    });
+  });
+
+  /* Active section highlight */
+  const navLinks = $$('.primary-nav a:not([data-focus])');
+  const sectionMap = new Map(navLinks.map(l => [l.getAttribute('href').slice(1), l]));
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        const link = sectionMap.get(entry.target.id);
+        if (!link) return;
+        if (entry.isIntersecting) {
+          navLinks.forEach(l => { l.classList.remove('is-active'); l.removeAttribute('aria-current'); });
+          link.classList.add('is-active');
+          link.setAttribute('aria-current', 'location');
+        }
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    sectionMap.forEach((_, id) => { const s = document.getElementById(id); if (s) io.observe(s); });
+  }
+
+  /* =========================================================
+     GALLERY + FILTERS
+     ========================================================= */
+  const grid = $('#gallery-grid');
+  const status = $('#gallery-status');
+  const empty = $('#gallery-empty');
+  const filterState = { cat: 'all', room: 'all' };
+  let currentList = GALLERY_ITEMS.slice();
+
+  function renderGallery() {
+    currentList = GALLERY_ITEMS.filter(item =>
+      (filterState.cat === 'all' || item.cat === filterState.cat) &&
+      (filterState.room === 'all' || item.room === filterState.room));
+    grid.innerHTML = '';
+    const frag = document.createDocumentFragment();
+    currentList.forEach((item, i) => {
+      const li = document.createElement('li');
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'gallery-item';
+      btn.setAttribute('aria-label', `Open photo ${i + 1} of ${currentList.length}: ${item.title}, ${ROOMS[item.room].name}`);
+      const img = document.createElement('img'); // REPLACE WITH REAL VENUE PHOTOS
+      img.src = imgUrl(item.seed, 600, 450);
+      img.width = 600; img.height = 450;
+      img.loading = 'lazy'; img.decoding = 'async';
+      img.alt = item.alt;
+      const label = document.createElement('span');
+      label.className = 'gi-label';
+      label.setAttribute('aria-hidden', 'true');
+      label.textContent = CATEGORY_LABELS[item.cat];
+      btn.append(img, label);
+      btn.addEventListener('click', () => openLightbox(currentList, i, btn));
+      li.appendChild(btn);
+      frag.appendChild(li);
+    });
+    grid.appendChild(frag);
+    const n = currentList.length;
+    empty.hidden = n !== 0;
+    grid.hidden = n === 0;
+    const parts = [];
+    if (filterState.cat !== 'all') parts.push(CATEGORY_LABELS[filterState.cat]);
+    if (filterState.room !== 'all') parts.push(ROOMS[filterState.room].name);
+    status.textContent = n === 0 ? 'No photos match the selected filters'
+      : `Showing ${n} photo${n === 1 ? '' : 's'}${parts.length ? ' · ' + parts.join(' · ') : ''}`;
+  }
+
+  function setFilter(group, value) {
+    filterState[group] = value;
+    $$(`[data-filter-group="${group}"] .chip`).forEach(c => c.setAttribute('aria-pressed', String(c.dataset.value === value)));
+    renderGallery();
+  }
+  $$('[data-filter-group]').forEach(groupEl => {
+    groupEl.addEventListener('click', e => {
+      const chip = e.target.closest('.chip');
+      if (chip) setFilter(groupEl.dataset.filterGroup, chip.dataset.value);
+    });
+  });
+  $('#gallery-reset').addEventListener('click', () => {
+    setFilter('cat', 'all'); setFilter('room', 'all');
+    const first = $('.gallery-item'); if (first) first.focus();
+  });
+  renderGallery();
+
+  /* Home preview → lightbox */
+  $$('[data-preview-index]').forEach(btn => {
+    btn.addEventListener('click', () => openLightbox(GALLERY_ITEMS, Number(btn.dataset.previewIndex), btn));
+  });
+
+  /* =========================================================
+     LIGHTBOX (aria-modal, focus trap, keyboard)
+     ========================================================= */
+  const lb = $('#lightbox');
+  const lbImg = $('#lb-img');
+  const lbTitle = $('#lb-title');
+  const lbCaption = $('#lb-caption');
+  const lbCounter = $('#lb-counter');
+  const lbClose = $('#lb-close');
+  const lbPrev = $('#lb-prev');
+  const lbNext = $('#lb-next');
+  const backgroundEls = [$('.skip-link'), $('#site-header'), $('#main'), $('.site-footer')];
+  let lbList = [], lbIndex = 0, lbReturnFocus = null;
+
+  function showLightboxItem() {
+    const item = lbList[lbIndex];
+    lbImg.src = imgUrl(item.seed, 1600, 1067); // REPLACE WITH REAL VENUE PHOTOS
+    lbImg.alt = item.alt;
+    lbTitle.textContent = item.title;
+    lbCaption.textContent = `${CATEGORY_LABELS[item.cat]} · ${ROOMS[item.room].name}`;
+    lbCounter.textContent = `Photo ${lbIndex + 1} of ${lbList.length}`;
+    const single = lbList.length < 2;
+    lbPrev.hidden = single; lbNext.hidden = single;
+  }
+  function openLightbox(list, index, trigger) {
+    lbList = list; lbIndex = index; lbReturnFocus = trigger || document.activeElement;
+    showLightboxItem();
+    lb.hidden = false;
+    document.body.classList.add('no-scroll');
+    backgroundEls.forEach(el => { if (el) { el.inert = true; el.setAttribute('aria-hidden', 'true'); } });
+    lbClose.focus();
+  }
+  function closeLightbox() {
+    lb.hidden = true;
+    document.body.classList.remove('no-scroll');
+    backgroundEls.forEach(el => { if (el) { el.inert = false; el.removeAttribute('aria-hidden'); } });
+    if (lbReturnFocus && document.contains(lbReturnFocus)) lbReturnFocus.focus();
+  }
+  const step = d => { lbIndex = (lbIndex + d + lbList.length) % lbList.length; showLightboxItem(); };
+  lbClose.addEventListener('click', closeLightbox);
+  lbPrev.addEventListener('click', () => step(-1));
+  lbNext.addEventListener('click', () => step(1));
+  lb.addEventListener('click', e => { if (e.target === lb) closeLightbox(); });
+  lb.addEventListener('keydown', e => {
+    if (e.key === 'Escape') { e.preventDefault(); closeLightbox(); }
+    else if (e.key === 'ArrowLeft' && lbList.length > 1) { e.preventDefault(); step(-1); }
+    else if (e.key === 'ArrowRight' && lbList.length > 1) { e.preventDefault(); step(1); }
+    else if (e.key === 'Tab') {
+      const focusables = [lbClose, lbPrev, lbNext].filter(b => !b.hidden);
+      const first = focusables[0], last = focusables[focusables.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      else if (!lb.contains(document.activeElement)) { e.preventDefault(); first.focus(); }
+    }
+  });
+  /* Basic swipe support */
+  let touchX = null;
+  lb.addEventListener('touchstart', e => { touchX = e.changedTouches[0].clientX; }, { passive: true });
+  lb.addEventListener('touchend', e => {
+    if (touchX === null || lbList.length < 2) return;
+    const dx = e.changedTouches[0].clientX - touchX;
+    if (Math.abs(dx) > 50) step(dx < 0 ? 1 : -1);
+    touchX = null;
+  }, { passive: true });
+
+  /* =========================================================
+     ACCORDION
+     ========================================================= */
+  function setAccordion(trigger, open) {
+    trigger.setAttribute('aria-expanded', String(open));
+    document.getElementById(trigger.getAttribute('aria-controls')).hidden = !open;
+  }
+  $$('.accordion-trigger').forEach(t => {
+    t.addEventListener('click', () => setAccordion(t, t.getAttribute('aria-expanded') !== 'true'));
+  });
+  /* Links to a specific FAQ open it */
+  $$('a[href^="#faq-"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const item = $(a.getAttribute('href'));
+      if (!item) return;
+      e.preventDefault();
+      const trigger = $('.accordion-trigger', item);
+      setAccordion(trigger, true);
+      history.replaceState(null, '', a.getAttribute('href'));
+      scrollToAndFocus(item, trigger);
+    });
+  });
+
+  /* =========================================================
+     PRE-SELECTION FROM SPACES / PACKAGES
+     ========================================================= */
+  const inquirySection = $('#inquiry');
+  const inquiryForm = $('#inquiry-form');
+  function goToInquiry() {
+    if (inquiryForm.hidden) resetFormView('inquiry');
+    scrollToAndFocus(inquirySection, $('#eventType'));
+  }
+  $$('[data-enquire-room]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      $('#room').value = btn.dataset.enquireRoom;
+      revalidateIfTouched($('#guestCount'));
+      goToInquiry();
+    });
+  });
+  $$('[data-quote-package]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      $('#package').value = btn.dataset.quotePackage;
+      goToInquiry();
+    });
+  });
+
+  /* =========================================================
+     FORM VALIDATION
+     ========================================================= */
+  const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  const digitsIn = v => (v.match(/\d/g) || []).length;
+  const toMinutes = t => { const [h, m] = t.split(':').map(Number); return h * 60 + m; };
+  const maxDate = () => { const d = new Date(); d.setFullYear(d.getFullYear() + 3); return d.toISOString().slice(0, 10); };
+
+  function validateFutureDate(v, label) {
+    if (!v) return `Please choose a ${label}.`;
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(v)) return 'Please enter a valid date.';
+    if (v < todayISO()) return `The ${label} can't be in the past.`;
+    if (v > maxDate()) return 'We take requests up to 3 years ahead. Please choose an earlier date.';
+    return '';
+  }
+  function validatePhone(v, required) {
+    if (!v.trim()) return required ? 'Please enter a phone number.' : '';
+    if (!/^[+\d()\-.\s]+$/.test(v) || digitsIn(v) < 7 || digitsIn(v) > 15) return 'Please enter a valid phone number, e.g. +1 555 010 0199.';
+    return '';
+  }
+
+  const RULES = {
+    eventType: v => v ? '' : 'Please select the type of event.',
+    eventDate: v => validateFutureDate(v, 'preferred date'),
+    startTime: v => v ? '' : 'Please choose a start time.',
+    endTime: (v, form) => {
+      if (!v) return 'Please choose an end time.';
+      const s = form.elements.start_time.value;
+      if (!s) return '';
+      const dur = (toMinutes(v) - toMinutes(s) + 1440) % 1440;
+      if (dur === 0) return 'End time must be different from start time.';
+      if (dur < 60) return 'Events must be at least 1 hour long.';
+      if (dur > 16 * 60) return 'For events longer than 16 hours, please mention it in the description and choose a shorter window here.';
+      return '';
+    },
+    guestCount: (v, form) => {
+      if (v === '') return 'Please enter an approximate number of guests.';
+      const n = Number(v);
+      if (!Number.isInteger(n) || n < 1) return 'Please enter a whole number of at least 1.';
+      if (n > 450) return 'Our maximum capacity is 450 guests standing.';
+      const room = ROOMS[form.elements.room.value];
+      if (room && n > room.standing) return `The ${room.name} hosts up to ${room.standing} guests standing (${room.seated} seated). Choose a larger space or "No preference".`;
+      return '';
+    },
+    fullName: v => v.trim().length >= 2 ? '' : 'Please enter your full name.',
+    email: v => !v.trim() ? 'Please enter your email address.' : (EMAIL_RE.test(v.trim()) ? '' : 'Please enter a valid email address, e.g. name@example.com.'),
+    phone: v => validatePhone(v, true),
+    terms: (v, form, el) => el.checked ? '' : 'Please agree to the booking terms and privacy policy to continue.',
+    tourName: v => v.trim().length >= 2 ? '' : 'Please enter your full name.',
+    tourEmail: v => !v.trim() ? 'Please enter your email address.' : (EMAIL_RE.test(v.trim()) ? '' : 'Please enter a valid email address, e.g. name@example.com.'),
+    tourPhone: v => validatePhone(v, false),
+    tourDate: v => validateFutureDate(v, 'tour date')
+  };
+
+  function validateField(el) {
+    const rule = RULES[el.id];
+    if (!rule) return true;
+    const msg = rule(el.value, el.form, el);
+    const errEl = document.getElementById(el.id + '-error');
+    if (errEl) errEl.textContent = msg;
+    el.setAttribute('aria-invalid', msg ? 'true' : 'false');
+    return !msg;
+  }
+  function revalidateIfTouched(el) { if (el && el.dataset.touched) validateField(el); }
+
+  /* Date minimums */
+  ['eventDate', 'tourDate'].forEach(id => { const el = document.getElementById(id); el.min = todayISO(); el.max = maxDate(); });
+
+  /* Character counter */
+  const details = $('#details'), detailsCount = $('#details-count');
+  const updateCount = () => { detailsCount.textContent = `${details.value.length} / 1000 characters`; };
+  details.addEventListener('input', updateCount);
+
+  /* =========================================================
+     FORM SUBMISSION (shared)
+     ========================================================= */
+  async function sendToEndpoint(payload) {
+    if (DEMO_MODE) {
+      console.warn('[EventHall] Demo mode: FORM_ENDPOINT not configured. Payload:', payload);
+      await new Promise(r => setTimeout(r, 900));
+      return { demo: true };
+    }
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 15000);
+    try {
+      const res = await fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload),
+        signal: controller.signal
+      });
+      if (!res.ok) {
+        let detail = '';
+        try { const data = await res.json(); detail = (data.errors || []).map(e => e.message).join(' '); } catch (_) {}
+        throw new Error(detail || `Server responded with ${res.status}`);
+      }
+      return { demo: false };
+    } finally { clearTimeout(timer); }
+  }
+
+  function setupForm(key) {
+    const form = document.getElementById(`${key}-form`);
+    const alertBox = document.getElementById(`${key}-alert`);
+    const success = document.getElementById(`${key}-success`);
+    const submitBtn = document.getElementById(`${key}-submit`);
+    const label = $('.btn-label', submitBtn);
+    const defaultLabel = label.textContent;
+    const fields = $$('input, select, textarea', form).filter(el => RULES[el.id]);
+    let submitting = false;
+
+    fields.forEach(el => {
+      const evt = (el.type === 'checkbox' || el.tagName === 'SELECT') ? 'change' : 'blur';
+      el.addEventListener(evt, () => { el.dataset.touched = '1'; validateField(el); });
+      el.addEventListener('input', () => { if (el.getAttribute('aria-invalid') === 'true') validateField(el); });
+    });
+    if (key === 'inquiry') {
+      $('#startTime').addEventListener('change', () => revalidateIfTouched($('#endTime')));
+      $('#room').addEventListener('change', () => revalidateIfTouched($('#guestCount')));
+    }
+
+    function setBusy(busy) {
+      submitting = busy;
+      submitBtn.disabled = busy;
+      submitBtn.setAttribute('aria-busy', String(busy));
+      label.textContent = busy ? 'Sending…' : defaultLabel;
+      const existing = $('.spinner', submitBtn);
+      if (busy && !existing) { const s = document.createElement('span'); s.className = 'spinner'; s.setAttribute('aria-hidden', 'true'); submitBtn.prepend(s); }
+      if (!busy && existing) existing.remove();
+    }
+
+    form.addEventListener('submit', async e => {
+      e.preventDefault();
+      if (submitting) return; // prevent double submission
+      alertBox.hidden = true;
+
+      let firstInvalid = null, count = 0;
+      fields.forEach(el => {
+        el.dataset.touched = '1';
+        if (!validateField(el)) { count++; if (!firstInvalid) firstInvalid = el; }
+      });
+      if (firstInvalid) {
+        alertBox.textContent = `Please correct ${count} field${count === 1 ? '' : 's'} highlighted below.`;
+        alertBox.hidden = false;
+        firstInvalid.focus();
+        return;
+      }
+
+      setBusy(true);
+      const reference = generateReference();
+      const data = Object.fromEntries(new FormData(form).entries());
+      const isSpam = !!data._gotcha;
+      delete data._gotcha;
+      const payload = Object.assign({}, data, {
+        form: form.dataset.formName,
+        reference,
+        _subject: `${form.dataset.formName} ${reference}`,
+        submitted_at: new Date().toISOString()
+      });
+      if (key === 'inquiry') {
+        payload.marketing_consent = $('#marketing').checked ? 'yes' : 'no';
+        payload.room = ROOMS[data.room] ? ROOMS[data.room].name : 'No preference';
+      }
+
+      try {
+        const result = isSpam ? { demo: false } : await sendToEndpoint(payload);
+        $('[data-ref]', success).textContent = reference;
+        $('[data-demo-note]', success).hidden = !result.demo;
+        form.hidden = true;
+        success.hidden = false;
+        success.focus();
+      } catch (err) {
+        // Keep all user input intact; only show an error
+        const reason = err.name === 'AbortError' ? 'The request timed out.' : "We couldn't send your request.";
+        alertBox.innerHTML = '';
+        alertBox.append(`${reason} Your details are still here. Please try again, or ${CONTACT_FALLBACK}.`);
+        alertBox.hidden = false;
+        alertBox.focus();
+        console.error('[EventHall] Submission failed:', err);
+      } finally {
+        setBusy(false);
+      }
+    });
+
+    $('[data-reset-form]', success).addEventListener('click', () => resetFormView(key, true));
+    $('[data-copy-ref]', success).addEventListener('click', async ev => {
+      const btn = ev.currentTarget;
+      const ref = $('[data-ref]', success).textContent;
+      try { await navigator.clipboard.writeText(ref); btn.textContent = 'Copied ✓'; }
+      catch (_) { btn.textContent = 'Select & copy'; const r = document.createRange(); r.selectNodeContents($('[data-ref]', success)); const s = getSelection(); s.removeAllRanges(); s.addRange(r); }
+      setTimeout(() => { btn.textContent = 'Copy'; }, 2500);
+    });
+  }
+
+  function resetFormView(key, focusFirst) {
+    const form = document.getElementById(`${key}-form`);
+    const success = document.getElementById(`${key}-success`);
+    form.reset();
+    $$('[aria-invalid]', form).forEach(el => el.removeAttribute('aria-invalid'));
+    $$('[data-touched]', form).forEach(el => delete el.dataset.touched);
+    $$('.field-error', form).forEach(el => { el.textContent = ''; });
+    document.getElementById(`${key}-alert`).hidden = true;
+    if (key === 'inquiry') updateCount();
+    success.hidden = true;
+    form.hidden = false;
+    if (focusFirst) { const first = $('input:not([tabindex="-1"]), select, textarea', form); if (first) first.focus(); }
+  }
+
+  setupForm('inquiry');
+  setupForm('tour');
+
+  /* Footer year */
+  $('#year').textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
+```
